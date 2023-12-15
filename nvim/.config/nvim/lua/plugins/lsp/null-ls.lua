@@ -32,7 +32,7 @@ return {
             return utils.root_has_file({ ".eslintrc.js", ".eslintrc.cjs" }) -- only enable if root has .eslintrc.js or .eslintrc.cjs
           end,
         }),
-        diagnostics.flake8, -- python linter
+        diagnostics.flake8.with({ extra_args = { "--max-line-length", "88" } }), -- python linter
       },
       -- configure format on save
       on_attach = function(current_client, bufnr)

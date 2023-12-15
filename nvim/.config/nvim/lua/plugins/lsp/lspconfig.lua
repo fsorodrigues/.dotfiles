@@ -130,7 +130,7 @@ return {
         python = {
           analysis = {
             autoSearchPaths = true,
-            useLibraryCodeForTypes = true,
+            useLibraryCodeForTypes = false,
             diagnosticSeverityOverrides = {
               reportGeneralTypeIssues = "none",
               reportOptionalMemberAccess = "none",
