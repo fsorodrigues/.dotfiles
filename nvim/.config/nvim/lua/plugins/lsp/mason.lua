@@ -18,11 +18,11 @@ return {
     mason.setup({
       ui = {
         icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗"
-        }
-      }
+          package_installed = "✓",
+          package_pending = "➜",
+          package_uninstalled = "✗",
+        },
+      },
     })
 
     mason_lspconfig.setup({
@@ -37,7 +37,7 @@ return {
         "graphql",
         "emmet_ls",
         "prismals",
-        "pyright"
+        "pyright",
       },
       -- auto-install configured servers (with lspconfig)
       automatic_installation = true, -- not the same as ensure_installed
@@ -49,6 +49,8 @@ return {
         "prettier", -- ts/js formatter
         "stylua", -- lua formatter
         "eslint_d", -- ts/js linter
+        "black", -- python formatter
+        "flake8", -- python linter
       },
       -- auto-install configured servers (with lspconfig)
       automatic_installation = true,

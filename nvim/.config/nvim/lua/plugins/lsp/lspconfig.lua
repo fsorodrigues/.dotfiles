@@ -126,6 +126,20 @@ return {
     lspconfig["pyright"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+      settings = {
+        python = {
+          analysis = {
+            autoSearchPaths = true,
+            useLibraryCodeForTypes = true,
+            diagnosticSeverityOverrides = {
+              reportGeneralTypeIssues = "none",
+              reportOptionalMemberAccess = "none",
+              reportOptionalSubscript = "none",
+              reportPrivateImportUsage = "none",
+            },
+          },
+        },
+      },
     })
 
     -- configure lua server (with special settings)
