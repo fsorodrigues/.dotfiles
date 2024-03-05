@@ -15,7 +15,6 @@ ZSH_THEME=""
 plugins=(
   git
   macos
-  autojump
   colorize
   zsh-syntax-highlighting
   zsh-autosuggestions
@@ -49,3 +48,5 @@ source /usr/local/opt/chruby/share/chruby/auto.sh
 autoload -U promptinit; promptinit
 prompt pure
 
+# add zoxide
+eval "$(zoxide init zsh)"
