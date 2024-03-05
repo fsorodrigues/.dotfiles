@@ -49,3 +49,6 @@ source /usr/local/opt/chruby/share/chruby/auto.sh
 autoload -U promptinit; promptinit
 prompt pure
 
+# alias pop to use env var and op
+alias pop="ACCOUNT=\"Google Felippe\" op run --no-masking --env-file \"$HOME/.pop/.env\" -- pop"
+
