@@ -15,7 +15,6 @@ ZSH_THEME=""
 plugins=(
   git
   macos
-  autojump
   colorize
   zsh-syntax-highlighting
   zsh-autosuggestions
@@ -52,3 +51,5 @@ prompt pure
 # alias pop to use env var and op
 alias pop="ACCOUNT=\"Google Felippe\" op run --no-masking --env-file \"$HOME/.pop/.env\" -- pop"
 
+# add zoxide
+eval "$(zoxide init zsh)"
