@@ -66,7 +66,7 @@ return {
       harpoon:list():append()
     end, { desc = "Mark file with harpoon" })
 
-    keymap.set("n", "<leader>hum", function()
+    keymap.set("n", "<leader>hu", function()
       harpoon:list():remove()
     end, { desc = "Unmark file with harpoon" })
 
