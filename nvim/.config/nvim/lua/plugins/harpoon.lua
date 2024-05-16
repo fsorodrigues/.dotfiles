@@ -56,6 +56,17 @@ return {
         :find()
     end
 
+    -- kudos to @skykosiner for this PR
+    local function getCurrentBufIdx(list)
+      local current_file = vim.api.nvim_buf_get_name(0):gsub(vim.fn.getcwd() .. "/", "")
+      for idx, item in ipairs(list.items) do
+        if item.value == current_file then
+          return idx
+        end
+      end
+
+      return nil
+    end
     -- set telescope toggle keymap
     keymap.set("n", "<leader>hl", function()
       toggle_telescope(harpoon:list())
@@ -71,11 +82,32 @@ return {
     end, { desc = "Unmark file with harpoon" })
 
     keymap.set("n", "<leader>hn", function()
-      harpoon:list():next()
+      local list = harpoon:list()
+      local currIdx = getCurrentBufIdx(list)
+      local length = list:length()
+      if currIdx == nil or currIdx ~= length then
+        list:next()
+      else
+        list:select(1)
+      end
     end, { desc = "Go to next harpoon mark" })
 
     keymap.set("n", "<leader>hp", function()
-      harpoon:list():prev()
+      local list = harpoon:list()
+      local currIdx = getCurrentBufIdx(list)
+      local length = list:length()
+      if currIdx == nil or currIdx ~= 1 then
+        list:prev()
+      else
+        list:select(length)
+      end
     end, { desc = "Go to previous harpoon mark" })
+
+    -- Set <space>1..<space>5 be my shortcuts to moving to the files
+    for _, idx in ipairs({ 1, 2, 3, 4, 5 }) do
+      vim.keymap.set("n", string.format("<leader>%d", idx), function()
+        harpoon:list():select(idx)
+      end)
+    end
   end,
 }
