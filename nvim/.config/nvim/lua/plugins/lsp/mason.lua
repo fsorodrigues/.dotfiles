@@ -52,6 +52,8 @@ return {
         "eslint_d", -- ts/js linter
         "black", -- python formatter
         "flake8", -- python linter
+        "golangcli-lint", -- go linter
+        "gofumpt", -- go formatter
       },
       -- auto-install configured servers (with lspconfig)
       automatic_installation = true,
