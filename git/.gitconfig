@@ -1,6 +1,7 @@
 [user]
 	name = fsorodrigues
 	email = fsorodrigues@gmail.com
+	signingkey = /Users/fsorodrigues/.ssh/id_rsa.pub
 [core]
 	excludesfile = /Users/fsorodrigues/.gitignore_global
   pager = delta
@@ -17,3 +18,5 @@
 
 [diff]
   colorMoved = default
+[gpg]
+	format = ssh
