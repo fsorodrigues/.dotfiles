@@ -93,7 +93,8 @@ return {
       end
     end, { desc = "Go to previous harpoon mark" })
 
-    -- Set <space>1..<space>5 be my shortcuts to moving to the files
+    -- Set <leader>1..<leader>5 be my shortcuts to moving to the files
+    -- Tks to @tjdevries for these, I just copied them from his config
     for _, idx in ipairs({ 1, 2, 3, 4, 5 }) do
       vim.keymap.set("n", string.format("<leader>%d", idx), function()
         harpoon:list():select(idx)
