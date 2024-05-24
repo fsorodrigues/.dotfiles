@@ -1,6 +1,7 @@
 return {
-  "ThePrimeagen/harpoon",
-  branch = "harpoon2",
+  "harpoon",
+  branch = "pull-514",
+  dev = true,
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
@@ -56,17 +57,6 @@ return {
         :find()
     end
 
-    -- kudos to @skykosiner for this PR
-    local function getCurrentBufIdx(list)
-      local current_file = vim.api.nvim_buf_get_name(0):gsub(vim.fn.getcwd() .. "/", "")
-      for idx, item in ipairs(list.items) do
-        if item.value == current_file then
-          return idx
-        end
-      end
-
-      return nil
-    end
     -- set telescope toggle keymap
     keymap.set("n", "<leader>hl", function()
       toggle_telescope(harpoon:list())
@@ -83,7 +73,7 @@ return {
 
     keymap.set("n", "<leader>hn", function()
       local list = harpoon:list()
-      local currIdx = getCurrentBufIdx(list)
+      local currIdx = list:get_current_status(list)
       local length = list:length()
       if currIdx == nil or currIdx ~= length then
         list:next()
@@ -94,7 +84,7 @@ return {
 
     keymap.set("n", "<leader>hp", function()
       local list = harpoon:list()
-      local currIdx = getCurrentBufIdx(list)
+      local currIdx = list:get_current_status(list)
       local length = list:length()
       if currIdx == nil or currIdx ~= 1 then
         list:prev()
