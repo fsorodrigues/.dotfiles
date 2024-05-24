@@ -71,6 +71,8 @@ return {
       harpoon:list():remove()
     end, { desc = "Unmark file with harpoon" })
 
+    -- using a new strategy to allow harpoon to circle around
+    -- to start or end of the list.
     keymap.set("n", "<leader>hn", function()
       local list = harpoon:list()
       local currIdx = list:get_current_status(list)
