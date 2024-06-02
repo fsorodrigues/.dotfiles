@@ -60,6 +60,9 @@ eval "$(zoxide init zsh --cmd cd)"
 # brew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
+# load keychain
+eval `keychain --eval -q id_ed25519`
+
 # add neofetch call to show ascii art & system info upon opening terminal
 neofetch
 
