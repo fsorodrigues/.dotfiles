@@ -75,7 +75,7 @@ return {
     -- to start or end of the list.
     keymap.set("n", "<leader>hn", function()
       local list = harpoon:list()
-      local currIdx = list:get_current_status(list)
+      local currIdx = list:get_current_status()
       local length = list:length()
       if currIdx == nil or currIdx ~= length then
         list:next()
@@ -86,7 +86,7 @@ return {
 
     keymap.set("n", "<leader>hp", function()
       local list = harpoon:list()
-      local currIdx = list:get_current_status(list)
+      local currIdx = list:get_current_status()
       local length = list:length()
       if currIdx == nil or currIdx ~= 1 then
         list:prev()
