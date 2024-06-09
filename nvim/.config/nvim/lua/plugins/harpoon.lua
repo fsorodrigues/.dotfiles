@@ -83,24 +83,12 @@ return {
 
     keymap.set("n", "<leader>hn", function()
       local list = harpoon:list()
-      local currIdx = getCurrentBufIdx(list)
-      local length = list:length()
-      if currIdx == nil or currIdx ~= length then
-        list:next()
-      else
-        list:select(1)
-      end
+      list:next({ ui_nav_wrap = true })
     end, { desc = "Go to next harpoon mark" })
 
-    keymap.set("n", "<leader>hp", function()
+    keymap.set("n", "<leader>hg", function()
       local list = harpoon:list()
-      local currIdx = getCurrentBufIdx(list)
-      local length = list:length()
-      if currIdx == nil or currIdx ~= 1 then
-        list:prev()
-      else
-        list:select(length)
-      end
+      list:prev({ ui_nav_wrap = true })
     end, { desc = "Go to previous harpoon mark" })
 
     -- Set <space>1..<space>5 be my shortcuts to moving to the files
