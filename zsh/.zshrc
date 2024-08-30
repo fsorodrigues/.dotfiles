@@ -26,6 +26,10 @@ source $ZSH/oh-my-zsh.sh
 # altering path
 path+=('/Users/fsorodrigues/.cargo/bin')
 
+# setting GOPATH
+export GOPATH=$HOME/go
+path+=("$GOPATH/bin")
+
 # setting aliases
 # alias color outputs
 alias cat="pygmentize -g"
