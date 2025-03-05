@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/fsorodrigues/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -24,7 +24,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # altering path
-path+=('/Users/fsorodrigues/.cargo/bin')
+path+=('$HOME/.cargo/bin')
 
 # setting GOPATH
 export GOPATH=$HOME/go
@@ -59,3 +59,6 @@ eval "$(zoxide init zsh --cmd cd)"
  
 # add jp2a call to show ascii art upon opening terminal
 jp2a --colors --chars='■■' --width=60 ~/.personal/ascii-art.jpg
+
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
