@@ -22,3 +22,5 @@
 	format = ssh
 [commit]
 	gpgsign = true
+[safe]
+	directory = /Users/fsorodrigues/Documents/signify/mnt
