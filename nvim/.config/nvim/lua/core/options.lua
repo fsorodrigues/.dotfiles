@@ -28,9 +28,9 @@ opt.cursorline = true -- highlight the current cursor line
 -- turn on termguicolors
 -- (have to use iterm2 or any other true color terminal)
 opt.termguicolors = true
+opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 --opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
 -- opt.background = "dark" -- colorschemes that can be light or dark will be made dark
--- opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 
 -- backspace
 -- allow backspace on indent, end of line or insert mode start position
