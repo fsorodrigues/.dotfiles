@@ -1,9 +1,9 @@
 [user]
 	name = fsorodrigues
 	email = fsorodrigues@gmail.com
-	signingkey = /Users/fsorodrigues/.ssh/id_rsa.pub
+	signingkey = ~/.ssh/id_rsa.pub
 [core]
-	excludesfile = /Users/fsorodrigues/.gitignore_global
+	excludesfile = ~/.gitignore_global
   pager = delta
 
 [interactive]
@@ -22,3 +22,6 @@
 	format = ssh
 [commit]
 	gpgsign = true
+
+[includeIf "gitdir:~/Documents/signify/"]
+  path = ~/Documents/signify/.gitconfig
