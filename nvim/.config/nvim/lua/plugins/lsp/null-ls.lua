@@ -1,5 +1,8 @@
 return {
-  "jose-elias-alvarez/null-ls.nvim", -- configure formatters & linters
+  "nvimtools/none-ls.nvim", -- configure formatters & linters
+  dependencies = {
+    "nvimtools/none-ls-extras.nvim", -- configure formatters & linters
+  },
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     -- import null-ls plugin
@@ -28,12 +31,12 @@ return {
         formatting.stylua, -- lua formatter
         formatting.black, -- python formatter
         formatting.gofumpt, -- go formatter
-        diagnostics.eslint_d.with({ -- js/ts linter
+        require("none-ls.diagnostics.eslint").with({ -- js/ts linter
           condition = function(utils)
             return utils.root_has_file({ ".eslintrc.js", ".eslintrc.cjs" }) -- only enable if root has .eslintrc.js or .eslintrc.cjs
           end,
         }),
-        diagnostics.flake8.with({ extra_args = { "--max-line-length", "88" } }), -- python linter
+        require("none-ls.diagnostics.flake8").with({ extra_args = { "--max-line-length", "88" } }), -- python linter
         diagnostics.golangci_lint, -- go linter
       },
       -- configure format on save
