@@ -32,7 +32,7 @@ path+=("$GOPATH/bin")
 
 # setting aliases
 # alias color outputs
-alias cat="pygmentize -g"
+alias cat="bat"
 
 # load pyenv
 eval "$(pyenv init --path)"
@@ -62,3 +62,11 @@ jp2a --colors --chars='■■' --width=60 ~/.personal/ascii-art.jpg
 
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+. "/Users/fsorodrigues/.deno/env"
+
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/Users/fsorodrigues/.zsh/completions:"* ]]; then export FPATH="/Users/fsorodrigues/.zsh/completions:$FPATH"; fi
+
+# Initialize zsh completions (added by deno install script)
+autoload -Uz compinit
+compinit
