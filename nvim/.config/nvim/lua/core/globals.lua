@@ -1,0 +1,2 @@
+-- global configs
+-- vim.g.loaded_netrwPlugin = 0

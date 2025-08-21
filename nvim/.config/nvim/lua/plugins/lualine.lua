@@ -4,6 +4,7 @@ return {
   config = function()
     local lualine = require("lualine")
     local lazy_status = require("lazy.status") -- to configure lazy pending updates count
+    local tokyonight = require("tokyonight.colors").setup({style = 'storm'})
 
     local colors = {
       blue = "#65D1FF",
@@ -12,7 +13,8 @@ return {
       yellow = "#FFDA7B",
       red = "#FF4A4A",
       fg = "#c3ccdc",
-      bg = "#112638",
+      -- bg = "#112638",
+      bg = tokyonight.bg_dark,
       inactive_bg = "#2c3043",
     }
 
