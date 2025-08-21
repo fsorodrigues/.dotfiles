@@ -60,6 +60,9 @@ eval "$(zoxide init zsh --cmd cd)"
 # add jp2a call to show ascii art upon opening terminal
 jp2a --colors --chars='■■' --width=60 ~/.personal/ascii-art.jpg
 
+# altering path for bun 
+path+="$HOME/.bun/bin"
+
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 . "/Users/fsorodrigues/.deno/env"
@@ -70,3 +73,6 @@ if [[ ":$FPATH:" != *":/Users/fsorodrigues/.zsh/completions:"* ]]; then export F
 # Initialize zsh completions (added by deno install script)
 autoload -Uz compinit
 compinit
+
+# opencode
+export PATH=/Users/fsorodrigues/.opencode/bin:$PATH
