@@ -39,6 +39,11 @@ bindkey -v
 # setting aliases
 alias cat="batcat"
 alias v="nvim ."
+alias ls="eza"
+alias la="ls -la"
+alias lt='ls -la -T -L 2'
+alias lt3='ls -la -T -L 3'
+alias ltn='ls -la -T -L'
 
 # load pyenv
 export PYENV_ROOT="$HOME/.pyenv"
