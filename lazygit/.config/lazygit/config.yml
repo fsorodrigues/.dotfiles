@@ -1,8 +1,8 @@
 gui:
-  sidePanelWidth: 0.275
+  sidePanelWidth: 0.235
 git:
   paging:
     colorArg: always
-    pager: delta --dark --paging=never --syntax-theme base16-256 -s
+    pager: delta --paging=never --syntax-theme ansi -s
 
 promptToReturnFromSubprocess: false
