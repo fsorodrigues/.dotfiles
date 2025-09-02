@@ -69,6 +69,9 @@ prompt pure
 
 # add zoxide
 eval "$(zoxide init zsh --cmd cd)"
+
+# add keychain
+eval `keychain -q --eval --agents ssh id_ed25519`
  
 # add jp2a call to show ascii art upon opening terminal
 # jp2a --colors --chars='■■' --width=60 ~/.personal/ascii-art.jpg
