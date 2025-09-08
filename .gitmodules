@@ -1,0 +1,3 @@
+[submodule "tmux-sessionizer/.local/bin"]
+	path = tmux-sessionizer/.local/bin
+	url = git@github.com:fsorodrigues/tmux-sessionizer.git
