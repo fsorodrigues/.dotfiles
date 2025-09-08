@@ -1,27 +1,23 @@
 [user]
-	name = fsorodrigues
-	email = fsorodrigues@gmail.com
-	signingkey = ~/.ssh/id_rsa.pub
+	name = felippe.rodrigues  
+	email = felippe.rodrigues@ptml.com
+	signingkey = ~/.ssh/id_ed25519.pub
 [core]
 	excludesfile = ~/.gitignore_global
   pager = delta
-
+  autocrlf = true
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	allowedSignersFile = ~/.ssh/allowed_signers
+[commit]
+	gpgsign = true
 [interactive]
   diffFilter = delta --color-only
-
 [delta]
   navigate = true # use n and N to move between diff sections
   side-by-side = true
-
 [merge]
-  conflictstyle = diff3
-
+  conflictstyle = zdiff3
 [diff]
   colorMoved = default
-[gpg]
-	format = ssh
-[commit]
-	gpgsign = true
-
-[includeIf "gitdir:~/Documents/signify/"]
-  path = ~/Documents/signify/.gitconfig
