@@ -5,7 +5,7 @@
 [core]
 	excludesfile = ~/.gitignore_global
   pager = delta
-  autocrlf = true
+  autocrlf = false
 [gpg]
 	format = ssh
 [gpg "ssh"]
