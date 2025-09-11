@@ -15,6 +15,7 @@ ZSH_THEME=""
 plugins=(
   git
   colorize
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
