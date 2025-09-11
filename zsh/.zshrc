@@ -43,6 +43,7 @@ path+=$HOME/.opencode/bin
 # setting aliases
 alias cat="bat"
 alias ts="tmux-sessionizer"
+alias lg="lazygit"
 alias v="nvim ."
 alias ls="eza"
 alias la="ls -la"
@@ -74,6 +75,8 @@ if [[ ":$FPATH:" != *":/Users/fsorodrigues/.zsh/completions:"* ]]; then fpath+="
 export FZF_DEFAULT_OPTS='
   --color=bg+:#292e42,pointer:#fbcddd,fg:#c0caf5,info:#c0caf5,hl+:#5af78e,hl:#5af78e,gutter:#1f2335,prompt:#5af78e,border:#c0caf5
 '
+# lazy git config
+export XDG_CONFIG_HOME="$HOME/.config"
 
 # # Initialize zsh completions (added by deno install script)
 autoload -Uz compinit
