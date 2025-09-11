@@ -29,10 +29,13 @@ path+=('$HOME/.cargo/bin')
 # setting GOPATH
 export GOPATH=$HOME/go
 path+=("$GOPATH/bin")
+# .local
+path+="$HOME/.local/bin"
 
 # setting aliases
 # alias color outputs
 alias cat="bat"
+alias ts="tmux-sessionizer"
 
 # load pyenv
 eval "$(pyenv init --path)"
@@ -68,12 +71,20 @@ path+="$HOME/.bun/bin"
 if [[ ":$FPATH:" != *":/Users/fsorodrigues/.zsh/completions:"* ]]; then export FPATH="/Users/fsorodrigues/.zsh/completions:$FPATH"; fi
 
 # Initialize zsh completions (added by deno install script)
+# fzf theme
+export FZF_DEFAULT_OPTS='
+  --color=bg+:#292e42,pointer:#fbcddd,fg:#c0caf5,info:#c0caf5,hl+:#5af78e,hl:#5af78e,gutter:#1f2335,prompt:#5af78e,border:#c0caf5
+'
+
 autoload -Uz compinit
 compinit
 
 # opencode
 export PATH=/Users/fsorodrigues/.opencode/bin:$PATH
+
 # system information
 fastfetch
 
+# load tmux-sessionizer
+bindkey -s ^f "ts\n"
 
