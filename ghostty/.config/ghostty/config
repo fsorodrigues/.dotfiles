@@ -1,0 +1,10 @@
+theme=tokyonight-storm
+
+title="👻"
+
+font-family="MesloLGS Nerd Font Mono"
+font-size=14
+font-feature=-liga
+font-thicken=true
+
+mouse-hide-while-typing = true
