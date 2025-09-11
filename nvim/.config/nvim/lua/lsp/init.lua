@@ -15,5 +15,6 @@ vim.lsp.enable({
 	"lua_ls",
 	"gopls",
   "svelte",
+  "pyright",
 })
 
