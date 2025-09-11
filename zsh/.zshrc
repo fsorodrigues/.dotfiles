@@ -39,6 +39,7 @@ alias cat="batcat"
 alias v="nvim ."
 alias ts="tmux-sessionizer"
 alias ls="eza"
+alias tldr="tealdeer"
 alias la="ls -la"
 alias lt='ls -la -T -L 2'
 alias lt3='ls -la -T -L 3'
