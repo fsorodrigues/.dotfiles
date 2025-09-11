@@ -57,9 +57,6 @@ alias pop="ACCOUNT=\"Google Felippe\" op run --no-masking --env-file \"$HOME/.po
 # add zoxide
 eval "$(zoxide init zsh --cmd cd)"
  
-# add jp2a call to show ascii art upon opening terminal
-jp2a --colors --chars='■■' --width=60 ~/.personal/ascii-art.jpg
-
 # altering path for bun 
 path+="$HOME/.bun/bin"
 
@@ -76,3 +73,7 @@ compinit
 
 # opencode
 export PATH=/Users/fsorodrigues/.opencode/bin:$PATH
+# system information
+fastfetch
+
+
