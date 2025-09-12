@@ -52,6 +52,10 @@ eval "$(pyenv init --path)"
 
 # load fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# fzf theme
+export FZF_DEFAULT_OPTS='
+  --color=bg+:#292e42,pointer:#fbcddd,fg:#c0caf5,info:#c0caf5,hl+:#5af78e,hl:#5af78e,gutter:#1f2335,prompt:#5af78e,border:#c0caf5
+'
 
 # load nvm
 # export NVM_DIR="$HOME/.nvm"
