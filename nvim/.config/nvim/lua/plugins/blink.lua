@@ -1,6 +1,9 @@
 return {
 	"saghen/blink.cmp",
-	dependencies = { "rafamadriz/friendly-snippets" },
+	dependencies = {
+    {'L3MON4D3/LuaSnip', version = "v2.*", },
+    "rafamadriz/friendly-snippets"
+  },
 	version = "1.*",
    opts = {
     signature = { enabled = true },
@@ -8,8 +11,9 @@ return {
       use_nvim_cmp_as_default = false,
       nerd_font_variant = "normal",
     },
+    snippets = { preset = "luasnip" },
     sources = {
-      default = { "lsp", "path", "snippets", "buffer" },
+      default = { "lsp", "snippets", "path", "buffer" },
     },
     completion = {
       menu = {
