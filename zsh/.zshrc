@@ -72,5 +72,5 @@ eval "$(zoxide init zsh --cmd cd)"
 # add keychain
 eval `keychain -q --eval --agents ssh id_ed25519`
  
-bindkey -s ^f "ts\n"
+bindkey -s ^g "ts\n"
 
