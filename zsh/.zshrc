@@ -90,5 +90,5 @@ prompt pure
 fastfetch
 
 # load tmux-sessionizer
-bindkey -s ^f "ts\n"
+bindkey -s ^g "ts\n"
 
