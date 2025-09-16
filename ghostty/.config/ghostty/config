@@ -3,8 +3,11 @@ theme=tokyonight-storm
 title="👻"
 
 font-family="MesloLGS Nerd Font Mono"
-font-size=14
+font-size=14.5
 font-feature=-liga
 font-thicken=true
 
 mouse-hide-while-typing = true
+
+window-width = 186
+window-height = 63
