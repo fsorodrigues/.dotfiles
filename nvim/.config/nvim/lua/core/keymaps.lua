@@ -34,10 +34,10 @@ keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- 
 keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 
 -- move lines
-keymap.set("n", "∆", ":m .+1<CR>==") -- <A-∆> move line up(n)
-keymap.set("n", "˚", ":m .-2<CR>==") -- <A-˚> move line down(n)
-keymap.set("v", "∆", ":m '>+1<CR>gv=gv") -- move line up(v)
-keymap.set("v", "˚", ":m '<-2<CR>gv=gv") -- move line down(v)
+keymap.set("n", "<M-j>", ":m .+1<CR>==") -- <A-∆> move line up(n)
+keymap.set("n", "<M-k>", ":m .-2<CR>==") -- <A-˚> move line down(n)
+keymap.set("v", "<M-j>", ":m '>+1<CR>gv=gv") -- move line up(v)
+keymap.set("v", "<M-k>", ":m '<-2<CR>gv=gv") -- move line down(v)
 
 -- remove arrow keys mappings
 keymap.set("n", "<Up>", "")
