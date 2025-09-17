@@ -36,7 +36,7 @@ bindkey -v
 
 # setting aliases
 alias cat="batcat"
-alias v="nvim ."
+alias v="nvim"
 alias ts="tmux-sessionizer"
 alias ls="eza"
 alias tldr="tealdeer"
