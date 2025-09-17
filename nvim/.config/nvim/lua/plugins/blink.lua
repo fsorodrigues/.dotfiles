@@ -1,11 +1,11 @@
 return {
-	"saghen/blink.cmp",
-	dependencies = {
-    {'L3MON4D3/LuaSnip', version = "v2.*", },
+  "saghen/blink.cmp",
+  dependencies = {
+    { 'L3MON4D3/LuaSnip', version = "v2.*", },
     "rafamadriz/friendly-snippets"
   },
-	version = "1.*",
-   opts = {
+  version = "1.*",
+  opts = {
     signature = { enabled = true },
     appearance = {
       use_nvim_cmp_as_default = false,
@@ -23,12 +23,13 @@ return {
         draw = {
           columns = {
             { "kind_icon" },
-            { "label", "label_description", gap = 1 },
+            { "label",      "label_description", gap = 1 },
             { "kind" },
             { "source_name" },
           },
         },
       },
+      trigger = { show_in_snippet = false },
       documentation = {
         window = {
           border = nil,
