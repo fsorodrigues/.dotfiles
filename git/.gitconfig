@@ -1,17 +1,17 @@
 [user]
-	name = felippe.rodrigues  
-	email = felippe.rodrigues@ptml.com
-	signingkey = ~/.ssh/id_ed25519.pub
+  name = felippe.rodrigues  
+  email = felippe.rodrigues@ptml.com
+  signingkey = ~/.ssh/id_ed25519.pub
 [core]
-	excludesfile = ~/.gitignore_global
+  excludesfile = ~/.gitignore_global
   pager = delta
   autocrlf = false
 [gpg]
-	format = ssh
+  format = ssh
 [gpg "ssh"]
-	allowedSignersFile = ~/.ssh/allowed_signers
+  allowedSignersFile = ~/.ssh/allowed_signers
 [commit]
-	gpgsign = true
+  gpgsign = true
 [interactive]
   diffFilter = delta --color-only
 [delta]
