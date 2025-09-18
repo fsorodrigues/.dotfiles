@@ -4,5 +4,6 @@ git:
   paging:
     colorArg: always
     pager: delta --paging=never --syntax-theme ansi -s
+  overrideGpg: true
 
 promptToReturnFromSubprocess: false
