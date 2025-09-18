@@ -10,6 +10,11 @@ opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
 opt.shiftwidth = 2 -- 2 spaces for indent width
 opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting new one
+opt.listchars:append({
+	tab = "▸▸",
+	trail = "·",
+	eol = "¬",
+})
 
 -- line wrapping
 opt.wrap = false -- disable line wrapping
@@ -47,5 +52,5 @@ opt.swapfile = false
 -- keep cursor from bottom of the screen
 opt.scrolloff = 9999
 
--- change complete menu behavior
+-- change stcomplete menu behavior
 opt.completeopt = { "menu", "menuone", "noselect" } -- mostly just for cmp

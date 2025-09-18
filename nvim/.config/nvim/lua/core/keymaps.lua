@@ -44,3 +44,8 @@ keymap.set("n", "<Up>", "")
 keymap.set("n", "<Down>", "")
 keymap.set("n", "<Left>", "")
 keymap.set("n", "<Right>", "")
+
+-- toggle display of whitespace characters (aka :set list / :set list!)
+keymap.set("n", "<leader>ww", function()
+	vim.opt.list = not vim.opt.list:get()
+end, { desc = "Toggle display of whitespace characters" })
