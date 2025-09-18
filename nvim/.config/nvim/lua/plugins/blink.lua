@@ -1,8 +1,8 @@
 return {
   "saghen/blink.cmp",
   dependencies = {
-    { 'L3MON4D3/LuaSnip', version = "v2.*", },
-    "rafamadriz/friendly-snippets"
+    { "L3MON4D3/LuaSnip", version = "v2.*" },
+    "rafamadriz/friendly-snippets",
   },
   version = "1.*",
   opts = {
@@ -23,30 +23,29 @@ return {
         draw = {
           columns = {
             { "kind_icon" },
-            { "label",      "label_description", gap = 1 },
+            { "label", "label_description", gap = 1 },
             { "kind" },
             { "source_name" },
           },
         },
       },
-      trigger = { show_in_snippet = false },
       documentation = {
         window = {
           border = nil,
           scrollbar = false,
-          winhighlight = 'Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,EndOfBuffer:BlinkCmpDoc',
+          winhighlight = "Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,EndOfBuffer:BlinkCmpDoc",
         },
         auto_show = true,
         auto_show_delay_ms = 500,
       },
     },
     keymap = {
-      ['<Up>'] = false,
-      ['<Down>'] = false,
-      ['<C-k>'] = { 'select_prev', 'fallback' },
-      ['<C-j>'] = { 'select_next', 'fallback' },
-      ['<C-y'] = false,
-      ['<CR>'] = { 'select_and_accept', 'fallback' }
-    }
+      ["<Up>"] = false,
+      ["<Down>"] = false,
+      ["<C-k>"] = { "select_prev", "fallback" },
+      ["<C-j>"] = { "select_next", "fallback" },
+      ["<C-y"] = false,
+      ["<CR>"] = { "select_and_accept", "fallback" },
+    },
   },
 }
