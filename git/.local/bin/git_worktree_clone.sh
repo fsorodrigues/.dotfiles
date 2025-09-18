@@ -7,10 +7,10 @@
 set -e
 
 # Examples of call:
-# git-clone-bare-for-worktrees git@github.com:name/repo.git
+# git_worktree_clone.sh git@github.com:name/repo.git
 # => Clones to a /repo directory
 #
-# git-clone-bare-for-worktrees git@github.com:name/repo.git my-repo
+# git_worktree_clone.sh git@github.com:name/repo.git my-repo
 # => Clones to a /my-repo directory
 
 url=$1
