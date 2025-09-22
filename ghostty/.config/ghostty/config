@@ -11,3 +11,5 @@ mouse-hide-while-typing = true
 
 window-width = 186
 window-height = 63
+
+macos-option-as-alt = true
