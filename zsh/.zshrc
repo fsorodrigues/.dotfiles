@@ -69,7 +69,7 @@ eval "$(zoxide init zsh --cmd cd)"
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # # Add completions to search path
-if [[ ":$FPATH:" != *":/Users/fsorodrigues/.zsh/completions:"* ]]; then fpath+="$HOME/.zsh/completions"; fi
+if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then fpath+="$HOME/.zsh/completions"; fi
 
 # fzf theme
 export FZF_DEFAULT_OPTS='
@@ -91,4 +91,31 @@ fastfetch
 
 # load tmux-sessionizer
 bindkey -s ^g "ts\n"
+
+# check if system is linux or macos
+if [[ "$(uname)" == "Darwin" ]]; then # macOS
+  # load keychain for macos
+  ssh-add --apple-load-keychain -q
+
+elseif [[ "$(uname)" == "Linux" ]]; then # Linux
+  # load keychain if installed
+  if (( $+commands[keychain] )); then
+    local keys=(
+      $HOME/.ssh/id_ed25519
+      $HOME/.ssh/id_rsa
+    )
+
+    # Filter out keys that don't exist
+    local existing_keys=()
+    for key in "${keys[@]}"; do
+      if [[ -a "$key" ]]; then
+        existing_keys+=("$key")
+      fi
+    done
+
+    if (( ${#existing_keys[@]} > 0 )); then
+      eval `keychain --quiet --eval --agents ssh "${existing_keys[@]}"`
+    fi
+  fi
+fi
 
