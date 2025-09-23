@@ -97,7 +97,7 @@ if [[ "$(uname)" == "Darwin" ]]; then # macOS
   # load keychain for macos
   ssh-add --apple-load-keychain -q
 
-elseif [[ "$(uname)" == "Linux" ]]; then # Linux
+elif [[ "$(uname)" == "Linux" ]]; then # Linux
   # load keychain if installed
   if (( $+commands[keychain] )); then
     local keys=(
