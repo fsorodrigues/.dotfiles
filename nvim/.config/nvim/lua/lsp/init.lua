@@ -1,18 +1,18 @@
 vim.lsp.config("lua_ls", {
-	settings = {
-		Lua = {
-			runtime = {
-				version = "LuaJIT",
-			},
-			diagnostics = {
-				globals = { "vim" },
-			},
-		},
-	},
+  settings = {
+    Lua = {
+      runtime = {
+        version = "LuaJIT",
+      },
+      diagnostics = {
+        globals = { "vim" },
+      },
+    },
+  },
 })
 
 vim.lsp.enable({
-	"lua_ls",
-	"gopls",
+  "lua_ls",
+  "gopls",
+  "yamlls",
 })
-
