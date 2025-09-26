@@ -16,10 +16,12 @@ return {
     keymaps = {
       ["<C-l>"] = false,
       ["<C-r>"] = "actions.refresh",
+      ["<C-c>"] = false,
+      ["<ESC>"] = { "actions.close", mode = "n" },
     },
   },
   config = function(_, opts)
     vim.keymap.set("n", "<leader>ee", "<CMD>Oil --float<CR>", { desc = "Toggle Oil file navigator" })
     require("oil").setup(opts)
-  end
+  end,
 }
