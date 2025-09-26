@@ -44,6 +44,8 @@ return {
       ["<Down>"] = false,
       ["<C-k>"] = { "select_prev", "fallback" },
       ["<C-j>"] = { "select_next", "fallback" },
+      ["<C-e>"] = false,
+      ["<C-c>"] = { "hide", "fallback" },
       ["<C-y"] = false,
       ["<CR>"] = { "select_and_accept", "fallback" },
     },
