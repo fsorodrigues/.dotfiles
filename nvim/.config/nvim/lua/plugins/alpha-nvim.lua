@@ -23,7 +23,11 @@ return {
       dashboard.button("e", "  > New File", "<cmd>ene<CR>"),
       dashboard.button("SPC ee", "  > Toggle file explorer", "<cmd>Oil --float<CR>"),
       dashboard.button("SPC ff", "󰱼  > Find File", "<cmd>Telescope find_files<CR>"),
-      dashboard.button("SPC fs", "  > Find Word", "<cmd>Telescope live_grep<CR>"),
+      dashboard.button(
+        "SPC fs",
+        "  > Find Word",
+        "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>"
+      ),
       dashboard.button("q", "  > Quit NVIM", "<cmd>qa<CR>"),
     }
 
