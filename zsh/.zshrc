@@ -27,12 +27,10 @@ path+=($HOME/.local/bin)
 path+=($HOME/neovim/bin)
 fpath+=($HOME/.zsh/pure)
 path+=/usr/local/go/bin
+path+=($HOME/.cargo/bin)
 
 # create vim binding mode for shell
 bindkey -v
-
-# altering path
-# path+=('$HOME/.cargo/bin')
 
 # setting aliases
 alias cat="batcat"
