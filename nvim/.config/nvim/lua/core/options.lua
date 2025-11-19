@@ -18,6 +18,23 @@ opt.listchars:append({
   nbsp = "‡", -- more obvoius than nbsp = "␣" IMHO
 })
 
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  group = vim.api.nvim_create_augroup("HighlightUnicodeNBSP", {}),
+  pattern = "*",
+  callback = function()
+    local groupNameNBSP = "HighlightUnicodeNBSP"
+    vim.fn.matchadd(groupNameNBSP, " ") --  Create group mapping: Match the special symbol U+00a0
+
+    -- Set highlighting for this group
+    vim.api.nvim_set_hl(0, groupNameNBSP, {
+      bg = "darkorange", -- Background color
+      fg = "white", -- Foreground color
+      -- You can also add other attributes, such as:
+      -- bold = true,
+      -- italic = true,
+      -- underline = true
+    })
+  end,
 })
 
 -- line wrapping
