@@ -11,9 +11,13 @@ opt.shiftwidth = 2 -- 2 spaces for indent width
 opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting new one
 opt.listchars:append({
-	tab = "▸▸",
-	trail = "·",
-	eol = "¬",
+  tab = "▸▸",
+  space = "·",
+  trail = "•",
+  eol = "¬", -- cleaner look than eol = "↲" IMHO
+  nbsp = "‡", -- more obvoius than nbsp = "␣" IMHO
+})
+
 })
 
 -- line wrapping
