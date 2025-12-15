@@ -75,6 +75,7 @@ $HOME/.zsh/symlink_ssh.sh
 # add keychain
 eval `keychain -q --eval --agents ssh id_ed25519`
  
+# set keybind for tmux-sessionizer
 bindkey -s ^g "ts\n"
 
 # set browser for WSL
