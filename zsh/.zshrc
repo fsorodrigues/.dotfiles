@@ -70,6 +70,8 @@ prompt pure
 # add zoxide
 eval "$(zoxide init zsh --cmd cd)"
 
+# prepare ssh files
+$HOME/.zsh/symlink_ssh.sh
 # add keychain
 eval `keychain -q --eval --agents ssh id_ed25519`
  
