@@ -21,7 +21,12 @@ return {
     },
   },
   config = function(_, opts)
-    vim.keymap.set("n", "<leader>ee", "<CMD>Oil --float<CR>", { desc = "Toggle Oil file navigator" })
+    vim.keymap.set(
+      "n",
+      "<leader>ee",
+      "<CMD>Oil --float<CR>",
+      { desc = "Toggle Oil file navigator" }
+    )
     require("oil").setup(opts)
   end,
 }
