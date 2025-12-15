@@ -6,6 +6,8 @@
   excludesfile = ~/.gitignore_global
   pager = delta
   autocrlf = false
+  hooksPath = ~/.git-hooks
+  editor = nvim
 [gpg]
   format = ssh
 [gpg "ssh"]
