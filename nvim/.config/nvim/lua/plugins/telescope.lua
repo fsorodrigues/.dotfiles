@@ -9,10 +9,12 @@ return {
       "nvim-telescope/telescope-live-grep-args.nvim",
       version = "^1.1.0",
     },
+    "nvim-telescope/telescope-ui-select.nvim",
   },
   config = function()
     local telescope = require("telescope")
     local actions = require("telescope.actions")
+    local themes = require("telescope.themes")
 
     telescope.setup({
       defaults = {
@@ -37,10 +39,16 @@ return {
           filesize_limit = 5,
         },
       },
+      extensions = {
+        ["ui-select"] = {
+          themes.get_cursor(),
+        },
+      },
     })
 
     telescope.load_extension("fzf")
     telescope.load_extension("live_grep_args")
+    telescope.load_extension("ui-select")
 
     -- set keymaps
     local keymap = vim.keymap -- for conciseness
