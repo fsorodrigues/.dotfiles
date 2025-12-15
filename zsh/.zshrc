@@ -77,3 +77,5 @@ eval `keychain -q --eval --agents ssh id_ed25519`
  
 bindkey -s ^g "ts\n"
 
+# set browser for WSL
+export BROWSER=wslview
