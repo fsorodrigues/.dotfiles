@@ -42,6 +42,8 @@ return {
     keymap = {
       ["<Up>"] = false,
       ["<Down>"] = false,
+      ["Tab"] = false,
+      ["S-Tab"] = false,
       ["<C-k>"] = { "select_prev", "fallback" },
       ["<C-j>"] = { "select_next", "fallback" },
       ["<C-e>"] = false,
