@@ -28,6 +28,7 @@ path+=($HOME/neovim/bin)
 fpath+=($HOME/.zsh/pure)
 path+=/usr/local/go/bin
 path+=($HOME/.cargo/bin)
+path+=($HOME/.opencode/bin)
 
 # create vim binding mode for shell
 bindkey -v
