@@ -6,11 +6,6 @@ return {
   },
   config = function()
     local lint = require("lint")
-    lint.linters.sqlfluff.args = {
-      "lint",
-      "--format=json",
-      "--config=.sqlfluff",
-    }
 
     lint.linters_by_ft = {
       sql = { "sqlfluff" },
