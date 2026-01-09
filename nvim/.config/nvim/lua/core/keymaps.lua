@@ -6,6 +6,10 @@ local keymap = vim.keymap -- for conciseness
 ---------------------
 -- General Keymaps --
 ---------------------
+-- Options for the keymaps (noremap is default in vim.keymap.set, but silent is useful)
+
+-- Map 'jk' to <Esc> in Insert mode ('i')
+vim.keymap.set("i", "jk", "<Esc>", { silent = true })
 
 -- get default file explorer
 keymap.set("n", "<leader>ex", "<CMD>Ex<CR>", { desc = "netrw file navigator" })
