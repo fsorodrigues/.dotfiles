@@ -73,7 +73,7 @@ eval "$(zoxide init zsh --cmd cd)"
 # prepare ssh files
 $HOME/.zsh/symlink_ssh.sh
 # add keychain
-eval `keychain -q --eval --agents ssh id_ed25519`
+eval `keychain -q --eval --agents ssh id_ed25519 id_ed25519_gmail`
  
 # set keybind for tmux-sessionizer
 bindkey -s ^g "ts\n"

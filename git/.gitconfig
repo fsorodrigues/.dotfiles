@@ -2,6 +2,8 @@
   name = felippe.rodrigues  
   email = felippe.rodrigues@ptml.com
   signingkey = ~/.ssh/id_ed25519.pub
+[includeIf "gitdir:~/personal/"]
+  path = ~/personal/.gitconfig
 [core]
   excludesfile = ~/.gitignore_global
   pager = delta
