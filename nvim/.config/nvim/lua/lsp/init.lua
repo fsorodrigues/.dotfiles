@@ -43,17 +43,21 @@ vim.lsp.config("gopls", {
   end,
 })
 
-vim.lsp.config("dbt_sql", {
-  cmd = { "/home/felipperodrigues/projects/dbt-lsp/bin/dbt_lsp" },
+vim.lsp.config("dbt-ls", {
+  cmd = {
+    "/home/felipperodrigues/personal/dbt-ls/bin/dbt-ls",
+    "--log-file",
+    "/home/felipperodrigues/personal/dbt-ls/log/log.txt",
+    "--log-level",
+    "debug",
+  },
   filetypes = { "sql" },
-  on_attach = function()
-    print("Attached to dbt lsp")
-  end,
+  root_markers = { "dbt_project.yml", "dbt_project.yaml", ".git" },
 })
 
 vim.lsp.enable({
   "lua_ls",
   "gopls",
   "yamlls",
-  "dbt_sql",
+  "dbt-ls",
 })
