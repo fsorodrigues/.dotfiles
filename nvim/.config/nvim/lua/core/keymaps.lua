@@ -7,6 +7,7 @@ local keymap = vim.keymap -- for conciseness
 -- General Keymaps --
 ---------------------
 keymap.set("i", "jk", "<Esc>", { desc = "Alternative escape sequence to get out of insert mode" })
+keymap.set("v", "fjk", "<Esc>", { desc = "Alternative escape sequence to get out of visual mode" })
 
 -- get default file explorer
 keymap.set("n", "<leader>ex", "<CMD>Ex<CR>", { desc = "netrw file navigator" })
