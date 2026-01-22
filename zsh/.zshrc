@@ -51,6 +51,9 @@ alias lt='ls -la -T -L 2'
 alias lt3='ls -la -T -L 3'
 alias ltn='ls -la -T -L'
 
+# create vim binding mode for shell
+bindkey -v
+
 # load pyenv
 eval "$(pyenv init --path)"
 
