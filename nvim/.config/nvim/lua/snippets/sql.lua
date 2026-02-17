@@ -59,7 +59,7 @@ return {
       [[
       {% for <item> in <seq> %}
         <action>  
-      {% endfor }
+      {% endfor %}
     ]],
       {
         item = i(1, "item"),
@@ -75,7 +75,7 @@ return {
       [[
       {% for <key>, <value> in <dict>.items() %}
         <action>  
-      {% endfor }
+      {% endfor %}
     ]],
       {
         key = i(1, "item"),
@@ -85,16 +85,33 @@ return {
       }
     )
   ),
+  -- if
   s(
     { trig = "if", desc = "jinja for if blocks." },
     fmta(
       [[
       {% if <expr> %}
         <action>  
-      {% endif }
+      {% endif %}
     ]],
       {
         expr = i(1, "expr"),
+        action = i(0, "action"),
+      }
+    )
+  ),
+  -- test
+  s(
+    { trig = "test", desc = "dbt test blocks" },
+    fmta(
+      [[
+      {% test <test_name>(model, <param>) %}
+        <action>  
+      {% endtest %}
+    ]],
+      {
+        test_name = i(1, "test_name"),
+        param = i(2, "param"),
         action = i(0, "action"),
       }
     )
