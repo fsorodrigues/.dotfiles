@@ -15,6 +15,7 @@ return {
     local telescope = require("telescope")
     local actions = require("telescope.actions")
     local themes = require("telescope.themes")
+    local lga_shortcuts = require("telescope-live-grep-args.shortcuts")
 
     telescope.setup({
       defaults = {
@@ -27,6 +28,9 @@ return {
             ["<C-v>"] = false,
             ["<C-s>"] = actions.file_vsplit,
             ["<C-h>"] = actions.file_split,
+          },
+          n = {
+            ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
           },
         },
         layout_config = {
@@ -43,12 +47,23 @@ return {
         ["ui-select"] = {
           themes.get_cursor(),
         },
+        live_grep_args = {
+          auto_quoting = true,
+          mappings = {
+            i = {
+              ["<C-y>"] = actions.to_fuzzy_refine,
+            },
+          },
+        },
       },
     })
 
     telescope.load_extension("fzf")
     telescope.load_extension("live_grep_args")
     telescope.load_extension("ui-select")
+
+    -- setting local alias for extension
+    local lga = telescope.extensions.live_grep_args
 
     -- set keymaps
     local keymap = vim.keymap -- for conciseness
@@ -72,13 +87,13 @@ return {
       { desc = "Fuzzy find recent files" }
     )
     keymap.set("n", "<leader>fs", function()
-      telescope.extensions.live_grep_args.live_grep_args()
+      lga.live_grep_args()
     end, { desc = "Find string in cwd with ripgrep args" })
-    keymap.set(
-      "n",
-      "<leader>fc",
-      "<cmd>Telescope grep_string<cr>",
-      { desc = "Find string under cursor in cwd" }
-    )
+    keymap.set("n", "<leader>fc", function()
+      lga_shortcuts.grep_word_under_cursor()
+    end, { desc = "Find string under cursor in cwd" })
+    keymap.set("v", "<leader>fc", function()
+      lga_shortcuts.grep_visual_selection()
+    end, { desc = "Find string under cursor in cwd" })
   end,
 }
