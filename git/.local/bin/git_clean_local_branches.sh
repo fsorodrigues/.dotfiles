@@ -13,5 +13,4 @@ remote=${1:-origin}
 git fetch $remote --prune
 
 # identify all branches that are "gone" (aka deleted in remote)
-git branch -vv | rg 'gone]' | awk '{print $1}' | xargs git branch -d
-
+git branch -vv | rg 'gone]' | awk '!/^[+*]/ {print $1}' | xargs git branch -d
