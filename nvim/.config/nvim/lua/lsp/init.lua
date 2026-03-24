@@ -60,4 +60,5 @@ vim.lsp.enable({
   "gopls",
   "yamlls",
   "dbt-ls",
+  "ty",
 })
