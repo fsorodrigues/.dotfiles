@@ -11,9 +11,8 @@ local keymap = vim.keymap -- for conciseness
 -- Map 'jk' to <Esc> in Insert mode ('i')
 vim.keymap.set("i", "jk", "<Esc>", { silent = true })
 
--- get default file explorer
-keymap.set("n", "<leader>ex", "<CMD>Ex<CR>", { desc = "netrw file navigator" })
-keymap.set("n", "<leader>sx", "<CMD>Ex<CR>", { desc = "netrw file navigator" })
+-- Ctrl + Y accepts selection
+vim.keymap.set("i", "<C-y>", "<C-k>", { noremap = false })
 
 -- reload current file
 keymap.set(
