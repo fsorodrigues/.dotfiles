@@ -136,3 +136,10 @@ keymap.set(
   { desc = "Show documentation for what is under cursor" }
 ) -- show documentation for what is under cursor
 keymap.set("n", "<leader>rs", ":LspRestart<CR>", { desc = "Restart LSP" }) -- mapping to restart lsp if necessary
+
+keymap.set(
+  "n",
+  "<leader>cts",
+  ":%s/\\s$//<CR>:nohl<CR>",
+  { desc = "Clean trailing spaces" }
+)
