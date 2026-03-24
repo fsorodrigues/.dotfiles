@@ -40,7 +40,6 @@ alias v="nvim"
 alias ts="tmux-sessionizer"
 alias ls="eza"
 alias lg="lazygit"
-alias tldr="tealdeer"
 alias fd="fdfind"
 alias la="ls -la"
 alias lt='ls -la -T -L 2'
