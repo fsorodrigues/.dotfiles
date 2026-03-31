@@ -42,10 +42,23 @@ vim.lsp.config("gopls", {
 	end,
 })
 
+vim.lsp.config("dbt_ls", {
+	cmd = {
+		"/Users/fsorodrigues/Documents/projects/dbt-ls/bin/dbt-ls",
+		"--log-file",
+		"/Users/fsorodrigues/Documents/projects/dbt-ls/log/log.txt",
+		"--log-level",
+		"debug", -- "info" for less verbose (but please use debug to help catch bugs and improve this)
+	},
+	filetypes = { "sql" },
+	root_markers = { "dbt_project.yml", "dbt_project.yaml", ".git" },
+})
+
 vim.lsp.enable({
 	"lua_ls",
 	"gopls",
 	"svelte",
 	"tailwindcss",
 	"pyright",
+	"dbt_ls",
 })
