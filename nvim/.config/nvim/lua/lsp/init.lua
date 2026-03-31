@@ -59,6 +59,6 @@ vim.lsp.enable({
 	"gopls",
 	"svelte",
 	"tailwindcss",
-	"pyright",
+	"ty",
 	"dbt_ls",
 })
