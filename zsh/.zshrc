@@ -22,6 +22,8 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+# config editor
+export EDITOR="nvim"
 
 # altering path
 # cargo/rust stuff
@@ -44,7 +46,7 @@ path+=$HOME/.opencode/bin
 alias cat="bat"
 alias ts="tmux-sessionizer"
 alias lg="lazygit"
-alias v="nvim ."
+alias v="nvim"
 alias ls="eza"
 alias la="ls -la"
 alias lt='ls -la -T -L 2'
