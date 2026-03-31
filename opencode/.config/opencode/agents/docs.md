@@ -1,6 +1,6 @@
 ---
 description: Writes and maintains project documentation. ALWAYS use this when writing docs
-model: github-copilot/gpt-4.1
+model: opencode/big-pickle 
 color: "#7dcfff"
 mode: subagent
 permission:
