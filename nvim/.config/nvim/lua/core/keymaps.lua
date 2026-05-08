@@ -31,7 +31,12 @@ keymap.set(
 )
 
 -- keep pasting
-keymap.set("x", "<leader>p", [["_dP]])
+keymap.set(
+  "x",
+  "<leader>p",
+  [["_dP]],
+  { desc = "Paste over selection (keep pasting)" }
+)
 
 -- increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
@@ -93,7 +98,7 @@ keymap.set(
 ) -- show lsp implementations
 keymap.set(
   "n",
-  "gt",
+  "<leader>gt",
   "<cmd>Telescope lsp_type_definitions<CR>",
   { desc = "Show LSP type definitions" }
 ) -- show lsp type definitions
