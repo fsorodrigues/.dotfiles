@@ -11,9 +11,10 @@ return {
   s({ trig = "ref", desc = "dbt ref block to reference a different model." }, {
     t("{{ ref("),
     t("'"),
-    i(0, "model_name", { key = "i1" }),
+    i(1, "model_name", { key = "i1" }),
     t("'"),
     t(") }}"),
+    i(0),
   }),
   -- config
   s(
@@ -48,8 +49,8 @@ return {
   s(
     { trig = "source", desc = "dbt config block to reference a source table." },
     fmta(
-      [[{{ source('<schema>', '<table>') }}]],
-      { schema = i(1, "schema_name"), table = i(0, "table_name") }
+      [[{{ source('<schema>', '<table>') }}<exit>]],
+      { schema = i(1, "schema_name"), table = i(2, "table_name"), exit = i(0) }
     )
   ),
   -- for loop

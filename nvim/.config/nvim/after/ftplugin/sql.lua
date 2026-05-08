@@ -12,3 +12,9 @@ vim.fn.setreg("a", [[yiwopcr_ysiwkJi ASj]])
 
 -- transform from column_name to ColumnName, make if an alias
 vim.fn.setreg("s", [[yiwopcrpysiw"kJi ASj]])
+
+-- transform from to "ColumnName" to "Column Name"
+vim.fn.setreg(
+  "d",
+  [[:s/"\zs[A-Za-z]\w*/\=substitute(submatch(0), '\u', ' \0', 'g')/:s/" /"/ nh]]
+)
