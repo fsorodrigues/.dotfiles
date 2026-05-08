@@ -18,6 +18,7 @@ return {
       ["<C-r>"] = "actions.refresh",
       ["<C-c>"] = false,
       ["<ESC>"] = { "actions.close", mode = "n" },
+      ["<C-y>"] = { "actions.yank_entry", mode = "n" },
     },
   },
   config = function(_, opts)
