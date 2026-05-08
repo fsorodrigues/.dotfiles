@@ -1,11 +1,10 @@
 gui:
   sidePanelWidth: 0.235
 git:
-  paging:
-    colorArg: always
-    pager: delta --paging=never --syntax-theme ansi -s
+  pagers:
+    - colorArg: always
+      pager: delta --paging=never --syntax-theme ansi -s
   overrideGpg: true
 os:
   copyToClipboardCmd: echo -n {{text}} | iconv -f utf-8 -t utf-16le | clip.exe
-
 promptToReturnFromSubprocess: false
