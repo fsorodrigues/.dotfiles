@@ -52,7 +52,8 @@ vim.lsp.config("dbt-ls", {
     "debug",
   },
   filetypes = { "sql" },
-  root_markers = { "dbt_project.yml", "dbt_project.yaml", ".git" },
+  root_markers = { "dbt_project.yml", "dbt_project.yaml" },
+  workspace_required = true,
 })
 
 vim.lsp.enable({
