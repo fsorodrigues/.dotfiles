@@ -14,7 +14,8 @@ return {
       red = tokyonight.red1, -- "#db4b4b"
       fg = "#c3ccdc",
       bg = tokyonight.bg_dark,
-      inactive_bg = "#2c3043",
+      inactive_bg = tokyonight.bg_highlight,
+      semilightgray = tokyonight.fg_dark,
     }
 
     local custom_theme = {
@@ -67,6 +68,7 @@ return {
           { "fileformat" },
           { "filetype" },
         },
+        lualine_b = {},
       },
     })
   end,
