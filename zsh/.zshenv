@@ -10,3 +10,6 @@ WIN_PATH="$WIN_PGM_FILES/Alacritty/:$WIN_SYS32:$WIN_WINDOWS:$WIN_SYS32/Wbem:$WIN
 export PATH=$CLEAN_PATH:$WIN_PATH
 
 . "$HOME/.cargo/env"
+
+# Make Go available to non-interactive shells too.
+path+=(/usr/local/go/bin $HOME/go/bin)
