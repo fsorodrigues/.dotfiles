@@ -75,6 +75,7 @@ esac
 # change theme
 autoload -U promptinit; promptinit
 prompt pure
+RPROMPT="%F{cyan}%D{%T}"
 
 # add zoxide
 eval "$(zoxide init zsh --cmd cd)"
