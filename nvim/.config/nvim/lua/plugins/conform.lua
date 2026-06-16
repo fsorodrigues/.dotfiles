@@ -4,7 +4,7 @@ return {
     formatters_by_ft = {
       sql = { "sqlfluff" },
       lua = { "stylua", lsp_format = "fallback" },
-      go = { "gofumpt", lsp_format = "fallback" },
+      go = { "gofumpt", "goimports", "golines", lsp_format = "fallback" },
     },
     format_on_save = {
       timeout_ms = 10000,
