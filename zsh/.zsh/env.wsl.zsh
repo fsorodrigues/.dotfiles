@@ -10,6 +10,8 @@ if [[ -f "$HOME/.cargo/env" ]]; then
   . "$HOME/.cargo/env"
 fi
 
+path+=("$HOME/.local/bin")
+
 if ! (( $+commands[go] )) && [[ -x "/usr/local/go/bin/go" ]]; then
   path+=("/usr/local/go/bin")
 fi
