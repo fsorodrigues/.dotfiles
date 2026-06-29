@@ -4,9 +4,9 @@
   "keybinds": {
     "leader": "ctrl+o",
     "input_newline": "return",
-    "input_submit": "ctrl+return,alt+return,super+return"
+    "input_submit": "shift+return,ctrl+return,alt+return,super+return"
   },
   "scroll_acceleration": {
     "enabled": true
-  },
+  }
 }
