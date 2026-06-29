@@ -1,7 +1,23 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "shell": "/bin/zsh",
-  "small_model": "opencode/big-pickle",
+  "small_model": "github-copilot/gpt-5-mini",
+  "agent": {
+    "build": {
+      "model": "github-copilot/gpt-5.5",
+      "temperature": 0.3
+    },
+    "plan": {
+      "model": "github-copilot/gpt-5.5",
+      "temperature": 0.1
+    },
+    "explore": {
+      "model": "github-copilot/claude-sonnet-4.6",
+    },
+    "general": {
+      "model": "github-copilot/claude-sonnet-4.6",
+    },
+  },
   "formatter": false
 }
 
