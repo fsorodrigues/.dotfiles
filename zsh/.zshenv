@@ -13,3 +13,7 @@ export PATH=$CLEAN_PATH:$WIN_PATH
 
 # Make Go available to non-interactive shells too.
 path+=(/usr/local/go/bin $HOME/go/bin)
+
+# adding other stuff for non-interactive shells
+path+=($HOME/.local/bin)
+path+=($HOME/.opencode/bin)
