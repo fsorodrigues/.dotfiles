@@ -10,6 +10,32 @@ opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
 opt.shiftwidth = 2 -- 2 spaces for indent width
 opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting new one
+opt.listchars:append({
+  tab = "▸▸",
+  space = "·",
+  trail = "•",
+  eol = "¬", -- cleaner look than eol = "↲" IMHO
+  nbsp = "‡", -- more obvoius than nbsp = "␣" IMHO
+})
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  group = vim.api.nvim_create_augroup("HighlightUnicodeNBSP", {}),
+  pattern = "*",
+  callback = function()
+    local groupNameNBSP = "HighlightUnicodeNBSP"
+    vim.fn.matchadd(groupNameNBSP, " ") --  Create group mapping: Match the special symbol U+00a0
+
+    -- Set highlighting for this group
+    vim.api.nvim_set_hl(0, groupNameNBSP, {
+      bg = "darkorange", -- Background color
+      fg = "white", -- Foreground color
+      -- You can also add other attributes, such as:
+      -- bold = true,
+      -- italic = true,
+      -- underline = true
+    })
+  end,
+})
 
 -- line wrapping
 opt.wrap = false -- disable line wrapping
@@ -47,5 +73,5 @@ opt.swapfile = false
 -- keep cursor from bottom of the screen
 opt.scrolloff = 9999
 
--- change complete menu behavior
+-- change stcomplete menu behavior
 opt.completeopt = { "menu", "menuone", "noselect" } -- mostly just for cmp

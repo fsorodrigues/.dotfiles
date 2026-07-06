@@ -1,5 +1,5 @@
 return {
-    'tpope/vim-fugitive',
-    cmd = { 'Git', 'G' },
-    ft = { 'gitcommit', 'gitrebase' },
-  }
+  "tpope/vim-fugitive",
+  cmd = { "Git", "G", "G blame" },
+  ft = { "gitcommit", "gitrebase" },
+}
