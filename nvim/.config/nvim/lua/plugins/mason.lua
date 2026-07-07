@@ -10,7 +10,12 @@ return {
     },
   },
   config = function(_, opts)
-    vim.keymap.set("n", "<leader>mas", "<CMD>Mason<CR>", { desc = "Open Mason" })
+    vim.keymap.set(
+      "n",
+      "<leader>mas",
+      "<CMD>Mason<CR>",
+      { desc = "Open Mason" }
+    )
     require("mason").setup(opts)
-  end
+  end,
 }
