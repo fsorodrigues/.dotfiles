@@ -2,6 +2,7 @@ alias v="nvim"
 alias ts="tmux-sessionizer"
 alias lg="lazygit"
 alias la="ls -la"
+alias oc="opencode ."
 alias pop="ACCOUNT=\"Google Felippe\" op run --no-masking --env-file \"$HOME/.pop/.env\" -- pop"
 
 if (( $+commands[bat] )); then

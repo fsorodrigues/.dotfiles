@@ -49,6 +49,19 @@ export default (async () => {
 
       if (isMac) {
         cfg.small_model = "opencode/big-pickle"
+        cfg.provider ??= {}
+        cfg.provider.ollama = {
+          npm: "@ai-sdk/openai-compatible",
+          name: "Ollama (local)",
+          options: {
+            baseURL: "http://ollama.lan.fsorodrigues.dev/v1",
+          },
+          models: {
+            "gemma4:e4b-32k": {
+              name: "Gemma4",
+            },
+          },
+        }
         cfg.agent.build = {
           ...cfg.agent.build,
           model: "opencode-go/deepseek-v4-pro",
