@@ -104,7 +104,7 @@
             "type": "command",
             "key": "  OS Age",
             "keyColor": "magenta",
-            "text": "birth_install=$(system_profiler SPInstallHistoryDataType | grep -A 4 'macOS' | grep 'macOS\\|Install Date' | tr '\n' ' '| sed -e 's/,/\\n/g' | sed 's/.*Install Date: //g' | head -n 1); current=$(date +%s); birth=$(date -j -f '%d/%m/%Y' $birth_install +%s); time_progression=$((current - birth)); days_difference=$((time_progression / 86400)); years=$((days_difference / 365)); excess_days=$((days_difference - (years * 365))); months=$((excess_days / 30)); remaining_days=$((excess_days - (months * 30))); echo $years years, $months months, $remaining_days days" 
+            "text": "if command -v system_profiler >/dev/null 2>&1; then birth_install=$(system_profiler SPInstallHistoryDataType | grep -A 4 'macOS' | grep 'macOS\\|Install Date' | tr '\n' ' '| sed -e 's/,/\\n/g' | sed 's/.*Install Date: //g' | head -n 1); current=$(date +%s); birth=$(date -j -f '%d/%m/%Y' $birth_install +%s); time_progression=$((current - birth)); days_difference=$((time_progression / 86400)); years=$((days_difference / 365)); excess_days=$((days_difference - (years * 365))); months=$((excess_days / 30)); remaining_days=$((excess_days - (months * 30))); echo $years years, $months months, $remaining_days days; else echo unknown; fi"
         },
         {
             "type": "uptime",
