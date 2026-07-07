@@ -27,10 +27,6 @@ if [[ -d "$PYENV_ROOT/bin" ]]; then
   export PATH="$PYENV_ROOT/bin:$PATH"
 fi
 
-if (( $+commands[pyenv] )); then
-  eval "$(pyenv init --path)"
-fi
-
 if [[ -f "$HOME/.fzf.zsh" ]]; then
   source "$HOME/.fzf.zsh"
 fi
