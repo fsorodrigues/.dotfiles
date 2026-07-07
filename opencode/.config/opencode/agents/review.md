@@ -1,8 +1,7 @@
 ---
 description: Reviews code for best practices and potential issues
-model: github-copilot/gemini-3.1-pro-preview
-color: "#f7768e"
-mode: primary 
+color: secondary
+mode: primary
 permission:
     edit: deny
 ---

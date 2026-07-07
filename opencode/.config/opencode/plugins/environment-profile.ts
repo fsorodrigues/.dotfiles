@@ -1,5 +1,38 @@
 import type { Plugin } from "@opencode-ai/plugin"
 
+const COPILOT_MODEL = "github-copilot/gpt-5.5"
+const COPILOT_SMALL_MODEL = "github-copilot/gpt-5-mini"
+const LOCAL_MODEL = "opencode-go/deepseek-v4-pro"
+const LOCAL_SMALL_MODEL = "opencode/big-pickle"
+type Config = Parameters<NonNullable<Plugin["config"]>>[0]
+
+const AGENT_COLORS = {
+  build: "primary",
+  plan: "accent",
+  review: "secondary",
+} as const
+
+const setAgent = (
+  cfg: Config,
+  name: keyof typeof AGENT_COLORS,
+  model: string,
+  temperature: number,
+) => {
+  cfg.agent ??= {}
+  cfg.agent[name] = {
+    ...cfg.agent[name],
+    model,
+    temperature,
+    color: AGENT_COLORS[name],
+  }
+}
+
+const setCopilotAgents = (cfg: Config) => {
+  cfg.small_model = COPILOT_SMALL_MODEL
+  setAgent(cfg, "build", COPILOT_MODEL, 0.3)
+  setAgent(cfg, "plan", COPILOT_MODEL, 0.1)
+}
+
 export default (async () => {
   return {
     config: (cfg) => {
@@ -11,44 +44,23 @@ export default (async () => {
           process.env.WSLENV,
       )
 
-      cfg.agent ??= {}
-
       if (isWindows) {
         cfg.shell = "powershell"
         cfg.formatter = false
-        cfg.small_model = "github-copilot/gpt-5-mini"
-        cfg.agent.build = {
-          ...cfg.agent.build,
-          model: "github-copilot/gpt-5.5",
-          temperature: 0.3,
-        }
-        cfg.agent.plan = {
-          ...cfg.agent.plan,
-          model: "github-copilot/gpt-5.5",
-          temperature: 0.1,
-        }
+        setCopilotAgents(cfg)
         return
       }
 
       if (isWsl) {
         cfg.shell = "/bin/zsh"
         cfg.formatter = false
-        cfg.small_model = "github-copilot/gpt-5-mini"
-        cfg.agent.build = {
-          ...cfg.agent.build,
-          model: "github-copilot/gpt-5.5",
-          temperature: 0.3,
-        }
-        cfg.agent.plan = {
-          ...cfg.agent.plan,
-          model: "github-copilot/gpt-5.5",
-          temperature: 0.1,
-        }
+        setCopilotAgents(cfg)
+        setAgent(cfg, "review", "github-copilot/claude-opus-4.6", 0.1)
         return
       }
 
       if (isMac) {
-        cfg.small_model = "opencode/big-pickle"
+        cfg.small_model = LOCAL_SMALL_MODEL
         cfg.provider ??= {}
         cfg.provider.ollama = {
           npm: "@ai-sdk/openai-compatible",
@@ -62,16 +74,9 @@ export default (async () => {
             },
           },
         }
-        cfg.agent.build = {
-          ...cfg.agent.build,
-          model: "opencode-go/deepseek-v4-pro",
-          temperature: 0.3,
-        }
-        cfg.agent.plan = {
-          ...cfg.agent.plan,
-          model: "opencode-go/deepseek-v4-pro",
-          temperature: 0.1,
-        }
+        setAgent(cfg, "build", LOCAL_MODEL, 0.3)
+        setAgent(cfg, "plan", LOCAL_MODEL, 0.1)
+        setAgent(cfg, "review", LOCAL_MODEL, 0.1)
       }
     },
   }
