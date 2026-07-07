@@ -10,8 +10,7 @@
 remote=${1:-origin}
 
 # update remote branches and prune all remote references that do not exist anymore
-git fetch $remote --prune
+git fetch "$remote" --prune
 
 # identify all branches that are "gone" (aka deleted in remote)
-git branch -vv | rg 'gone]' | awk '{print $1}' | xargs git branch -d
-
+git branch -vv | rg 'gone]' | awk '!/^[+*]/ {print $1}' | xargs -r git branch -d
