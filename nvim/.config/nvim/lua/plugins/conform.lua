@@ -1,13 +1,14 @@
 return {
-	"stevearc/conform.nvim",
-	opts = {
-		formatters_by_ft = {
-			lua = { "stylua" },
-			go = { "gofumpt", lsp_format = "fallback" },
-		},
-		format_on_save = {
-			timeout_ms = 5000,
-		},
-		default_format_opts = { async = true },
-	},
+  "stevearc/conform.nvim",
+  opts = {
+    formatters_by_ft = {
+      sql = { "sqlfluff" },
+      lua = { "stylua", lsp_format = "fallback" },
+      go = { "gofumpt", "goimports", "golines", lsp_format = "fallback" },
+    },
+    format_on_save = {
+      timeout_ms = 10000,
+    },
+    default_format_opts = { async = true },
+  },
 }
