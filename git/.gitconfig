@@ -1,7 +1,6 @@
 [user]
-	name = fsorodrigues
-	email = felippe.rodrigues@ptml.com
-	signingkey = ~/.ssh/id_ed25519.pub
+  name = fsorodrigues
+
 [core]
 	excludesfile = ~/.gitignore_global
   pager = delta
@@ -23,5 +22,14 @@
 [commit]
 	gpgsign = true
 
-[includeIf "gitdir:~/projects/"]
-  path = ~/projects/.gitconfig
+[includeIf "gitdir:/Users/fsorodrigues/"]
+  path = ~/.config/git/personal.macos.gitconfig
+
+[includeIf "gitdir:/Users/fsorodrigues/work/"]
+  path = ~/.config/git/work.macos.gitconfig
+
+[includeIf "gitdir:/home/felipperodrigues/"]
+  path = ~/.config/git/work.wsl.gitconfig
+
+[includeIf "gitdir:/home/felipperodrigues/personal/"]
+  path = ~/.config/git/personal.wsl.gitconfig
