@@ -3,13 +3,16 @@ import type { Plugin } from "@opencode-ai/plugin"
 const COPILOT_MODEL = "github-copilot/gpt-5.5"
 const COPILOT_SMALL_MODEL = "github-copilot/gpt-5-mini"
 const LOCAL_MODEL = "opencode-go/deepseek-v4-pro"
-const LOCAL_SMALL_MODEL = "opencode/big-pickle"
+const LOCAL_SMALL_MODEL = "opencode/deepseek-v4-flash"
 type Config = Parameters<NonNullable<Plugin["config"]>>[0]
 
 const AGENT_COLORS = {
   build: "primary",
   plan: "accent",
   review: "secondary",
+  explore: "info",
+  general: "success",
+  scout: "warning",
 } as const
 
 const setAgent = (
@@ -31,6 +34,10 @@ const setCopilotAgents = (cfg: Config) => {
   cfg.small_model = COPILOT_SMALL_MODEL
   setAgent(cfg, "build", COPILOT_MODEL, 0.3)
   setAgent(cfg, "plan", COPILOT_MODEL, 0.1)
+  setAgent(cfg, "review", "github-copilot/claude-sonnet-5", 0.1)
+  setAgent(cfg, "explore", COPILOT_MODEL, 0.1)
+  setAgent(cfg, "general", COPILOT_MODEL, 0.1)
+  setAgent(cfg, "scout", COPILOT_MODEL, 0.1)
 }
 
 export default (async () => {
@@ -55,7 +62,6 @@ export default (async () => {
         cfg.shell = "/bin/zsh"
         cfg.formatter = false
         setCopilotAgents(cfg)
-        setAgent(cfg, "review", "github-copilot/claude-opus-4.6", 0.1)
         return
       }
 
@@ -77,6 +83,9 @@ export default (async () => {
         setAgent(cfg, "build", LOCAL_MODEL, 0.3)
         setAgent(cfg, "plan", LOCAL_MODEL, 0.1)
         setAgent(cfg, "review", LOCAL_MODEL, 0.1)
+        setAgent(cfg, "explore", LOCAL_MODEL, 0.1)
+        setAgent(cfg, "general", LOCAL_MODEL, 0.1)
+        setAgent(cfg, "scout", LOCAL_MODEL, 0.1)
       }
     },
   }
