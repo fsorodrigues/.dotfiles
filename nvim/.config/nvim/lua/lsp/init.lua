@@ -57,10 +57,8 @@ if dbt_ls_bin and vim.fn.executable(dbt_ls_bin) == 1 then
   vim.lsp.config("dbt-ls", {
     cmd = {
       dbt_ls_bin,
-      "--log-file",
-      dbt_ls_root .. "/log/log.txt",
       "--log-level",
-      "debug",
+      "trace",
     },
     filetypes = { "sql" },
     root_markers = { "dbt_project.yml", "dbt_project.yaml" },
