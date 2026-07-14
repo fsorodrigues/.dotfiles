@@ -20,6 +20,7 @@ const setAgent = (
   name: keyof typeof AGENT_COLORS,
   model: string,
   temperature: number,
+  mode?: "subagent" | "primary" | "all",
 ) => {
   cfg.agent ??= {}
   cfg.agent[name] = {
@@ -27,6 +28,7 @@ const setAgent = (
     model,
     temperature,
     color: AGENT_COLORS[name],
+    ...(mode ? { mode } : {}),
   }
 }
 
@@ -37,7 +39,7 @@ const setCopilotAgents = (cfg: Config) => {
   setAgent(cfg, "review", "github-copilot/claude-sonnet-5", 0.1)
   setAgent(cfg, "explore", COPILOT_MODEL, 0.1)
   setAgent(cfg, "general", COPILOT_MODEL, 0.1)
-  setAgent(cfg, "scout", COPILOT_MODEL, 0.1)
+  setAgent(cfg, "scout", COPILOT_MODEL, 0.1, "subagent")
 }
 
 export default (async () => {
@@ -85,7 +87,7 @@ export default (async () => {
         setAgent(cfg, "review", LOCAL_MODEL, 0.1)
         setAgent(cfg, "explore", LOCAL_MODEL, 0.1)
         setAgent(cfg, "general", LOCAL_MODEL, 0.1)
-        setAgent(cfg, "scout", LOCAL_MODEL, 0.1)
+        setAgent(cfg, "scout", LOCAL_MODEL, 0.1, "subagent")
       }
     },
   }
