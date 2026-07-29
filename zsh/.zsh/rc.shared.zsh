@@ -5,6 +5,34 @@ alias la="ls -la"
 alias oc="opencode ."
 alias pop="ACCOUNT=\"Google Felippe\" op run --no-masking --env-file \"$HOME/.pop/.env\" -- pop"
 
+# Launch Neovim with a feature build of dbt-ls for this process only.
+# Accepts either a worktree name under $DBT_LS_DIR or an absolute worktree path.
+# Examples:
+#   nvim-dbt-ls iss-1568
+#   nvim-dbt-ls /tmp/dbt-ls-feature path/to/project
+#   NVIM_APPNAME=nvim_test nvim-dbt-ls iss-1568
+#   NVIM_APPNAME=nvim_test nvim-dbt-ls iss-1568 path/to/file.sql
+nvim-dbt-ls() {
+  local worktree="${1:?worktree required}"
+  shift
+
+  local worktree_path
+  if [[ "$worktree" == /* ]]; then
+    worktree_path="$worktree"
+  else
+    worktree_path="$DBT_LS_DIR/$worktree"
+  fi
+
+  local bin="$worktree_path/bin/dbt-ls"
+
+  if [[ ! -x "$bin" ]]; then
+    print -u2 "dbt-ls binary not found: $bin"
+    return 1
+  fi
+
+  DBT_LS_BIN="$bin" command nvim "$@"
+}
+
 if (( $+commands[bat] )); then
   alias cat="bat"
 elif (( $+commands[batcat] )); then

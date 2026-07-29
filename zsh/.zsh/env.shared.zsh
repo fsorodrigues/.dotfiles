@@ -23,10 +23,4 @@ if [[ -d "$PNPM_HOME" ]]; then
   path+=("$PNPM_HOME")
 fi
 
-for dbt_ls_root in "$HOME/personal/dbt-ls" "$HOME/projects/dbt-ls" "$HOME/Documents/projects/dbt-ls"; do
-  if [[ -x "$dbt_ls_root/bin/dbt-ls" ]]; then
-    export DBT_LS_ROOT="$dbt_ls_root"
-    path+=("$DBT_LS_ROOT/bin")
-    break
-  fi
-done
+export DBT_LS_DIR="${DBT_LS_DIR:-$HOME/personal/dbt-ls}"

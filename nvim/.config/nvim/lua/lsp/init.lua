@@ -50,10 +50,12 @@ local enabled_servers = {
   "ty",
 }
 
-local dbt_ls_root = vim.env.DBT_LS_ROOT
-local dbt_ls_bin = dbt_ls_root and (dbt_ls_root .. "/bin/dbt-ls")
+local dbt_ls_bin = vim.env.DBT_LS_BIN
+if not dbt_ls_bin or dbt_ls_bin == "" then
+  dbt_ls_bin = vim.fn.exepath("dbt-ls")
+end
 
-if dbt_ls_bin and vim.fn.executable(dbt_ls_bin) == 1 then
+if dbt_ls_bin ~= "" and vim.fn.executable(dbt_ls_bin) == 1 then
   vim.lsp.config("dbt-ls", {
     cmd = {
       dbt_ls_bin,
