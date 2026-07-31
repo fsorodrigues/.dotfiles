@@ -19,7 +19,7 @@ How to use it:
 - Keep the request limited to reading PRs, reading issues, or creating draft PRs.
 - Prefer `gh pr view ... --json ...` and `gh issue view ... --json ...` when structured output helps.
 - Prefer `gh pr list ... --json ...` and `gh issue list ... --json ...` for search or listing requests.
-- Before creating a draft PR, always look for a pull request template in the repository. Start with the worktree root and standard GitHub template locations, then use that template to shape the PR body.
+- Before creating a draft PR, always look for a pull request template in the repository. Start with the worktree root and standard GitHub template locations, make sure your search is case insensitive, then use that template to shape the PR body.
 - For PR creation, always use `gh pr create --draft`.
 
 Do not do these things:
