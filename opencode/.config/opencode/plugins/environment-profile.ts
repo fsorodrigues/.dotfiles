@@ -80,6 +80,9 @@ export default (async () => {
             "gemma4:e4b-32k": {
               name: "Gemma4",
             },
+            "qwen3.5:9b-64k": {
+              name: "Qwen3.5",
+            },
           },
         }
         setAgent(cfg, "build", LOCAL_MODEL, 0.3)
