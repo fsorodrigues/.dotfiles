@@ -43,6 +43,11 @@ vim.lsp.config("gopls", {
   end,
 })
 
+vim.lsp.config("ty", {
+  root_markers = { "pyproject.toml", "uv.lock", ".python-version", ".git" },
+  workspace_required = true,
+})
+
 local enabled_servers = {
   "lua_ls",
   "gopls",
