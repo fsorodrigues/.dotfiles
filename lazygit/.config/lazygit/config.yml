@@ -1,9 +1,9 @@
 gui:
   sidePanelWidth: 0.275
 git:
-  pagers:
+  diffRenderers:
     - colorArg: always
-      pager: delta --dark --paging=never --syntax-theme base16-256 -s
+      command: delta --dark --paging=never --syntax-theme base16-256 -s
   overrideGpg: true
 os:
   copyToClipboardCmd: echo -n {{text}} | iconv -f utf-8 -t utf-16le | clip.exe
