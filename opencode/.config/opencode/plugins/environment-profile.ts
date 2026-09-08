@@ -1,6 +1,6 @@
 import type { Plugin } from "@opencode-ai/plugin"
 
-const COPILOT_MODEL = "github-copilot/gpt-5.5"
+const COPILOT_MODEL = "github-copilot/gpt-5.6-sol"
 const COPILOT_SMALL_MODEL = "github-copilot/gpt-5-mini"
 const LOCAL_MODEL = "opencode-go/deepseek-v4-pro"
 const LOCAL_SMALL_MODEL = "opencode/deepseek-v4-flash"
@@ -36,7 +36,7 @@ const setCopilotAgents = (cfg: Config) => {
   cfg.small_model = COPILOT_SMALL_MODEL
   setAgent(cfg, "build", COPILOT_MODEL, 0.3)
   setAgent(cfg, "plan", COPILOT_MODEL, 0.1)
-  setAgent(cfg, "review", "github-copilot/claude-sonnet-5", 0.1)
+  setAgent(cfg, "review", "github-copilot/gpt-6-astra", 0.1)
   setAgent(cfg, "explore", COPILOT_MODEL, 0.1)
   setAgent(cfg, "general", COPILOT_MODEL, 0.1)
   setAgent(cfg, "scout", COPILOT_MODEL, 0.1, "subagent")
