@@ -36,6 +36,15 @@ return {
       go = { "golangcilint" },
     }
 
+    local sqlfluff_default = lint.linters.sqlfluff
+    lint.linters.sqlfluff = {
+      cmd = sqlfluff_default.cmd,
+      args = { "lint", "--format=json" },
+      ignore_exitcode = sqlfluff_default.ignore_exitcode,
+      stdin = sqlfluff_default.stdin,
+      parser = sqlfluff_default.parser,
+    }
+
     vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
       pattern = "*",
       group = vim.api.nvim_create_augroup(
