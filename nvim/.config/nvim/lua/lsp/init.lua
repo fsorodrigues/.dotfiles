@@ -46,8 +46,9 @@ vim.lsp.config("gopls", {
 local enabled_servers = {
   "lua_ls",
   "gopls",
-  "yamlls",
   "ty",
+  "svelte",
+  "tailwindcss",
 }
 
 local dbt_ls_bin = vim.env.DBT_LS_BIN
