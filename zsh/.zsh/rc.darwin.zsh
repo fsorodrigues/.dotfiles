@@ -1,5 +1,6 @@
 typeset -a SSH_KEYS
 SSH_KEYS=(
+  "$HOME/.ssh/id_rsa"
 )
 
 if (( ${#SSH_KEYS[@]} > 0 )); then
