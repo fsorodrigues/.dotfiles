@@ -2,7 +2,7 @@ import type { Plugin } from "@opencode-ai/plugin"
 
 const COPILOT_MODEL = "github-copilot/gpt-5.6-sol"
 const COPILOT_SMALL_MODEL = "github-copilot/gpt-5-mini"
-const LOCAL_MODEL = "opencode-go/deepseek-v4-pro"
+const LOCAL_MODEL = "opencode-go/gpt-5.6-luna"
 const LOCAL_SMALL_MODEL = "opencode/deepseek-v4-flash"
 type Config = Parameters<NonNullable<Plugin["config"]>>[0]
 
