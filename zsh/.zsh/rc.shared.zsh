@@ -56,10 +56,10 @@ if [[ -d "$PYENV_ROOT/bin" ]]; then
   export PATH="$PYENV_ROOT/bin:$PATH"
 fi
 
-if [[ -s "$NVM_DIR/nvm.sh" ]]; then
-  source "$NVM_DIR/nvm.sh"
-  nvm use --silent default >/dev/null
-fi
+# if [[ -s "$NVM_DIR/nvm.sh" ]]; then
+#   source "$NVM_DIR/nvm.sh"
+#   nvm use --silent default >/dev/null
+# fi
 
 if [[ -f "$HOME/.fzf.zsh" ]]; then
   source "$HOME/.fzf.zsh"
@@ -69,9 +69,9 @@ export FZF_DEFAULT_OPTS='
   --color=bg+:#292e42,pointer:#fbcddd,fg:#c0caf5,info:#c0caf5,hl+:#5af78e,hl:#5af78e,gutter:#1f2335,prompt:#5af78e,border:#c0caf5
 '
 
-if [[ -s "$NVM_DIR/bash_completion" ]]; then
-  . "$NVM_DIR/bash_completion"
-fi
+# if [[ -s "$NVM_DIR/bash_completion" ]]; then
+#   . "$NVM_DIR/bash_completion"
+# fi
 
 if (( $+commands[zoxide] )); then
   eval "$(zoxide init zsh --cmd cd)"
