@@ -1,37 +1,52 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    event = { "BufReadPre", "BufNewFile" },
+    branch = "main",
+    lazy = false,
     build = ":TSUpdate",
     dependencies = {
       "windwp/nvim-ts-autotag",
     },
     config = function()
-      -- import nvim-treesitter plugin
-      local treesitter = require("nvim-treesitter.configs")
+      -- These are parser names, which can differ from Neovim filetypes.
+      require("nvim-treesitter").install({
+        "json",
+        "javascript",
+        "typescript",
+        "tsx",
+        "yaml",
+        "html",
+        "css",
+        "scss",
+        "markdown",
+        "markdown_inline",
+        "svelte",
+        "bash",
+        "lua",
+        "vim",
+        "dockerfile",
+        "gitignore",
+        "python",
+        "go",
+        "sql",
+      })
 
-      -- configure treesitter
-      treesitter.setup({ -- enable syntax highlighting
-        highlight = {
-          enable = true,
-        },
-        -- enable indentation
-        indent = { enable = true },
-        -- ensure these language parsers are installed
-        ensure_installed = {
+      vim.api.nvim_create_autocmd("FileType", {
+        -- These are filetypes, not parser names: tsx -> typescriptreact and
+        -- bash -> sh. markdown_inline is injection-only, so it has no entry.
+        -- Neovim 0.12's Lua and Markdown ftplugins already start Tree-sitter.
+        pattern = {
           "json",
           "javascript",
+          "javascriptreact",
           "typescript",
-          "tsx",
+          "typescriptreact",
           "yaml",
           "html",
           "css",
           "scss",
-          "markdown",
-          "markdown_inline",
           "svelte",
-          "bash",
-          "lua",
+          "sh",
           "vim",
           "dockerfile",
           "gitignore",
@@ -39,8 +54,11 @@ return {
           "go",
           "sql",
         },
-        -- auto install above language parsers
-        auto_install = true,
+        callback = function()
+          vim.treesitter.start()
+          vim.bo.indentexpr =
+            "v:lua.require'nvim-treesitter'.indentexpr()"
+        end,
       })
 
       require("nvim-ts-autotag").setup()
