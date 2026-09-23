@@ -89,7 +89,13 @@ keymap.set(
   "gd",
   "<cmd>Telescope lsp_definitions<CR>",
   { desc = "Show LSP definitions" }
-) -- show lsp definitions
+) -- show lsp definitions, goto in same buffer
+keymap.set(
+  "n",
+  "gsd",
+  "<cmd>Telescope lsp_definitions jump_type=vsplit<CR>",
+  { desc = "Show LSP definitions" }
+) -- show lsp definitions, goto in vsplit buffer
 keymap.set(
   "n",
   "gi",
