@@ -4,14 +4,13 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export PYENV_ROOT="$HOME/.pyenv"
 export PNPM_HOME="$HOME/.local/share/pnpm"
 export NVM_DIR="$HOME/.nvm"
-export NVM_SYMLINK_CURRENT=true
+unset NVM_SYMLINK_CURRENT
 
 path+=(
   "$HOME/.local/bin"
   "$HOME/.cargo/bin"
   "$GOPATH/bin"
   "$HOME/.opencode/bin"
-  "$NVM_DIR/current/bin"
 )
 
 if [[ -d "$HOME/.bun/bin" ]]; then
