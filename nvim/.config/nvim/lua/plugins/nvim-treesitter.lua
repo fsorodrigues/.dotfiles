@@ -10,6 +10,7 @@ return {
     config = function()
       -- These are parser names, which can differ from Neovim filetypes.
       require("nvim-treesitter").install({
+        "c",
         "json",
         "javascript",
         "typescript",
@@ -36,6 +37,7 @@ return {
         -- bash -> sh. markdown_inline is injection-only, so it has no entry.
         -- Neovim 0.12's Lua and Markdown ftplugins already start Tree-sitter.
         pattern = {
+          "c",
           "json",
           "javascript",
           "javascriptreact",
