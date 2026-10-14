@@ -15,6 +15,9 @@ path+=(
 
 if [[ -d "$HOME/.bun/bin" ]]; then
   path+=("$HOME/.bun/bin")
+
+  # bun completions
+  [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 fi
 
 if [[ -d "$HOME/neovim/bin" ]]; then
