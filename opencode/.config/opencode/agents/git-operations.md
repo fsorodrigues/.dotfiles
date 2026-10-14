@@ -1,86 +1,85 @@
 ---
 description: Performs Git-only repository operations such as status, diff, staging, commits, branches, tags, merges, rebases, fetches, pulls, and pushes.
 mode: subagent
-permission:
-  read: deny
-  edit: deny
-  glob: deny
-  grep: deny
-  list: deny
-  task: deny
-  todowrite: deny
-  skill: deny
-  lsp: deny
-  doom_loop: deny
-  webfetch: deny
-  websearch: deny
-  external_directory: deny
-  question: deny
-  bash:
-    "*": deny
-    "git status": allow
-    "git status *": allow
-    "git diff": allow
-    "git diff *": allow
-    "git log": allow
-    "git log *": allow
-    "git show": allow
-    "git show *": allow
-    "git rev-parse *": allow
-    "git ls-files": allow
-    "git ls-files *": allow
-    "git add *": allow
-    "git commit *": allow
-    "git fetch": allow
-    "git fetch *": allow
-    "git branch *": ask
-    "git checkout *": ask
-    "git switch *": ask
-    "git restore *": ask
-    "git reset *": ask
-    "git clean *": ask
-    "git rm *": ask
-    "git mv *": ask
-    "git stash *": ask
-    "git tag *": ask
-    "git merge *": ask
-    "git rebase *": ask
-    "git cherry-pick *": ask
-    "git revert *": ask
-    "git pull *": ask
-    "git push *": ask
-    "git remote *": ask
-    "git worktree *": ask
-    "git submodule *": ask
-    "git init *": ask
-    "git clone *": ask
-    "git branch": allow
-    "git branch --show-current": allow
-    "git branch --list *": allow
-    "git remote": allow
-    "git remote -v": allow
-    "git remote get-url *": allow
-    "git tag --list *": allow
-    "git tag --list": allow
-    "git restore --staged *": allow
-    "git branch -d *": ask
-    "git branch -D *": ask
-    "git config *": deny
-    "git commit --amend*": ask
-    "git commit *--amend*": ask
-    "git commit *--no-verify*": deny
-    "git push *--force*": deny
-    "git push *-f*": deny
-    "git reset --hard*": deny
-    "git clean -f*": deny
-    "git clean *-f*": deny
-    "*;*": deny
-    "*&&*": deny
-    "*|*": deny
-    "*>*": deny
-    "*<*": deny
-    "*$(*": deny
-    "*`*": deny
+permissions:
+  - { action: read, resource: "*", effect: deny }
+  - { action: edit, resource: "*", effect: deny }
+  - { action: glob, resource: "*", effect: deny }
+  - { action: grep, resource: "*", effect: deny }
+  - { action: list, resource: "*", effect: deny }
+  - { action: subagent, resource: "*", effect: deny }
+  - { action: todowrite, resource: "*", effect: deny }
+  - { action: skill, resource: "*", effect: deny }
+  - { action: lsp, resource: "*", effect: deny }
+  - { action: doom_loop, resource: "*", effect: deny }
+  - { action: webfetch, resource: "*", effect: deny }
+  - { action: websearch, resource: "*", effect: deny }
+  - { action: external_directory, resource: "*", effect: deny }
+  - { action: question, resource: "*", effect: deny }
+  - { action: shell, resource: "*", effect: deny }
+  - { action: shell, resource: "git status", effect: allow }
+  - { action: shell, resource: "git status *", effect: allow }
+  - { action: shell, resource: "git diff", effect: allow }
+  - { action: shell, resource: "git diff *", effect: allow }
+  - { action: shell, resource: "git log", effect: allow }
+  - { action: shell, resource: "git log *", effect: allow }
+  - { action: shell, resource: "git show", effect: allow }
+  - { action: shell, resource: "git show *", effect: allow }
+  - { action: shell, resource: "git rev-parse *", effect: allow }
+  - { action: shell, resource: "git ls-files", effect: allow }
+  - { action: shell, resource: "git ls-files *", effect: allow }
+  - { action: shell, resource: "git add *", effect: allow }
+  - { action: shell, resource: "git commit *", effect: allow }
+  - { action: shell, resource: "git fetch", effect: allow }
+  - { action: shell, resource: "git fetch *", effect: allow }
+  - { action: shell, resource: "git branch *", effect: ask }
+  - { action: shell, resource: "git checkout *", effect: ask }
+  - { action: shell, resource: "git switch *", effect: ask }
+  - { action: shell, resource: "git restore *", effect: ask }
+  - { action: shell, resource: "git reset *", effect: ask }
+  - { action: shell, resource: "git clean *", effect: ask }
+  - { action: shell, resource: "git rm *", effect: ask }
+  - { action: shell, resource: "git mv *", effect: ask }
+  - { action: shell, resource: "git stash *", effect: ask }
+  - { action: shell, resource: "git tag *", effect: ask }
+  - { action: shell, resource: "git merge *", effect: ask }
+  - { action: shell, resource: "git rebase *", effect: ask }
+  - { action: shell, resource: "git cherry-pick *", effect: ask }
+  - { action: shell, resource: "git revert *", effect: ask }
+  - { action: shell, resource: "git pull *", effect: ask }
+  - { action: shell, resource: "git push *", effect: ask }
+  - { action: shell, resource: "git remote *", effect: ask }
+  - { action: shell, resource: "git worktree *", effect: ask }
+  - { action: shell, resource: "git submodule *", effect: ask }
+  - { action: shell, resource: "git init *", effect: ask }
+  - { action: shell, resource: "git clone *", effect: ask }
+  - { action: shell, resource: "git branch", effect: allow }
+  - { action: shell, resource: "git branch --show-current", effect: allow }
+  - { action: shell, resource: "git branch --list *", effect: allow }
+  - { action: shell, resource: "git remote", effect: allow }
+  - { action: shell, resource: "git remote -v", effect: allow }
+  - { action: shell, resource: "git remote get-url *", effect: allow }
+  - { action: shell, resource: "git tag --list *", effect: allow }
+  - { action: shell, resource: "git tag --list", effect: allow }
+  - { action: shell, resource: "git restore --staged *", effect: allow }
+  - { action: shell, resource: "git branch -d *", effect: ask }
+  - { action: shell, resource: "git branch -D *", effect: ask }
+  - { action: shell, resource: "git config *", effect: deny }
+  - { action: shell, resource: "git commit --amend*", effect: ask }
+  - { action: shell, resource: "git commit *--amend*", effect: ask }
+  - { action: shell, resource: "git commit *--no-verify*", effect: deny }
+  - { action: shell, resource: "git push *--force*", effect: deny }
+  - { action: shell, resource: "git push *-f*", effect: deny }
+  - { action: shell, resource: "git reset --hard*", effect: deny }
+  - { action: shell, resource: "git clean -f*", effect: deny }
+  - { action: shell, resource: "git clean *-f*", effect: deny }
+  - { action: shell, resource: "*;*", effect: deny }
+  - { action: shell, resource: "*&&*", effect: deny }
+  - { action: shell, resource: "*|*", effect: deny }
+  - { action: shell, resource: "*>*", effect: deny }
+  - { action: shell, resource: "*<*", effect: deny }
+  - { action: shell, resource: "*$(*", effect: deny }
+  - { action: shell, resource: "*`*", effect: deny }
 ---
 
 You are a Git operations subagent. Perform Git operations and nothing else.

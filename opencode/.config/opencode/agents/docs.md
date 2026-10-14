@@ -3,9 +3,10 @@ description: Writes and maintains project documentation. ALWAYS use this when wr
 model: opencode/big-pickle 
 color: "#7dcfff"
 mode: subagent
-permission:
-    bash:
-        git push: deny 
+permissions:
+  - action: shell
+    resource: git push
+    effect: deny
 ---
 
 You are an expert technical documentation writer with a sense of humor

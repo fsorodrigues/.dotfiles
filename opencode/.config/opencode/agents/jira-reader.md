@@ -1,31 +1,30 @@
 ---
 description: Read Jira tickets and attachment text via acli and jira-attachment-text. Use only for searching Jira work items, viewing Jira work item details, listing attachments, or reading attachment text.
 mode: subagent
-permission:
-  edit: deny
-  read: deny
-  glob: deny
-  grep: deny
-  list: deny
-  skill: deny
-  bash:
-    "*": deny
-    "acli jira auth status": allow
-    "acli jira workitem search *": allow
-    "acli jira workitem view *": allow
-    "acli jira workitem attachment list *": allow
-    "jira-attachment-text *": allow
-    "acli jira workitem search * --web*": deny
-    "acli jira workitem search --web*": deny
-    "acli jira workitem view * --web*": deny
-    "acli jira workitem view --web*": deny
-    "*;*": deny
-    "*&&*": deny
-    "*|*": deny
-    "*>*": deny
-    "*<*": deny
-    "*$(*": deny
-    "*`*": deny
+permissions:
+  - { action: edit, resource: "*", effect: deny }
+  - { action: read, resource: "*", effect: deny }
+  - { action: glob, resource: "*", effect: deny }
+  - { action: grep, resource: "*", effect: deny }
+  - { action: list, resource: "*", effect: deny }
+  - { action: skill, resource: "*", effect: deny }
+  - { action: shell, resource: "*", effect: deny }
+  - { action: shell, resource: "acli jira auth status", effect: allow }
+  - { action: shell, resource: "acli jira workitem search *", effect: allow }
+  - { action: shell, resource: "acli jira workitem view *", effect: allow }
+  - { action: shell, resource: "acli jira workitem attachment list *", effect: allow }
+  - { action: shell, resource: "jira-attachment-text *", effect: allow }
+  - { action: shell, resource: "acli jira workitem search * --web*", effect: deny }
+  - { action: shell, resource: "acli jira workitem search --web*", effect: deny }
+  - { action: shell, resource: "acli jira workitem view * --web*", effect: deny }
+  - { action: shell, resource: "acli jira workitem view --web*", effect: deny }
+  - { action: shell, resource: "*;*", effect: deny }
+  - { action: shell, resource: "*&&*", effect: deny }
+  - { action: shell, resource: "*|*", effect: deny }
+  - { action: shell, resource: "*>*", effect: deny }
+  - { action: shell, resource: "*<*", effect: deny }
+  - { action: shell, resource: "*$(*", effect: deny }
+  - { action: shell, resource: "*`*", effect: deny }
 ---
 
 You are a strict read-only Jira subagent.

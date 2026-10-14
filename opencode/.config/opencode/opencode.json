@@ -1,4 +1,10 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": ["./plugins/environment-profile.ts"]
+  "agents": {
+    "scout": {
+      "mode": "subagent",
+      "hidden": true
+    }
+  },
+  "plugins": ["./plugins/environment-profile.ts"]
 }

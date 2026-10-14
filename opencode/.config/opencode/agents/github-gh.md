@@ -1,26 +1,25 @@
 ---
 description: Read GitHub pull requests and issues via gh, and create draft pull requests only.
 mode: subagent
-permission:
-  edit: deny
-  skill: deny
-  bash:
-    "*": deny
-    "gh auth status": allow
-    "gh pr view *": allow
-    "gh pr list *": allow
-    "gh issue view *": allow
-    "gh issue list *": allow
-    "gh pr create --draft": allow
-    "gh pr create --draft *": allow
-    "gh pr create * --draft": allow
-    "gh pr create * --draft *": allow
-    "gh pr create * --web*": deny
-    "gh pr create --web*": deny
-    "gh pr view * --web*": deny
-    "gh pr view --web*": deny
-    "gh issue view * --web*": deny
-    "gh issue view --web*": deny
+permissions:
+  - { action: edit, resource: "*", effect: deny }
+  - { action: skill, resource: "*", effect: deny }
+  - { action: shell, resource: "*", effect: deny }
+  - { action: shell, resource: "gh auth status", effect: allow }
+  - { action: shell, resource: "gh pr view *", effect: allow }
+  - { action: shell, resource: "gh pr list *", effect: allow }
+  - { action: shell, resource: "gh issue view *", effect: allow }
+  - { action: shell, resource: "gh issue list *", effect: allow }
+  - { action: shell, resource: "gh pr create --draft", effect: allow }
+  - { action: shell, resource: "gh pr create --draft *", effect: allow }
+  - { action: shell, resource: "gh pr create * --draft", effect: allow }
+  - { action: shell, resource: "gh pr create * --draft *", effect: allow }
+  - { action: shell, resource: "gh pr create * --web*", effect: deny }
+  - { action: shell, resource: "gh pr create --web*", effect: deny }
+  - { action: shell, resource: "gh pr view * --web*", effect: deny }
+  - { action: shell, resource: "gh pr view --web*", effect: deny }
+  - { action: shell, resource: "gh issue view * --web*", effect: deny }
+  - { action: shell, resource: "gh issue view --web*", effect: deny }
 ---
 
 You are a GitHub CLI subagent with tightly limited permissions.

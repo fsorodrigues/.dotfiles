@@ -1,34 +1,33 @@
 ---
 description: Reviews dbt project configuration files for deprecations and can apply safe config-only fixes. Never runs dbt run or dbt build.
 mode: subagent
-permission:
-  edit: ask
-  skill: deny
-  bash:
-    "*": deny
-    "uv --version": allow
-    "uv run dbt --version": allow
-    "uv run dbt parse": allow
-    "uv run dbt parse *": allow
-    "uv run dbt deps": allow
-    "dbt": deny
-    "dbt *": deny
-    "dbt run": deny
-    "dbt run *": deny
-    "dbt build": deny
-    "dbt build *": deny
-    "* dbt run *": deny
-    "* dbt build *": deny
-    "make *dbt*run*": deny
-    "make *dbt*build*": deny
-    "npm run *dbt*run*": deny
-    "npm run *dbt*build*": deny
-    "yarn *dbt*run*": deny
-    "yarn *dbt*build*": deny
-    "pnpm *dbt*run*": deny
-    "pnpm *dbt*build*": deny
-    "*dbt*run*": deny
-    "*dbt*build*": deny
+permissions:
+  - { action: edit, resource: "*", effect: ask }
+  - { action: skill, resource: "*", effect: deny }
+  - { action: shell, resource: "*", effect: deny }
+  - { action: shell, resource: "uv --version", effect: allow }
+  - { action: shell, resource: "uv run dbt --version", effect: allow }
+  - { action: shell, resource: "uv run dbt parse", effect: allow }
+  - { action: shell, resource: "uv run dbt parse *", effect: allow }
+  - { action: shell, resource: "uv run dbt deps", effect: allow }
+  - { action: shell, resource: "dbt", effect: deny }
+  - { action: shell, resource: "dbt *", effect: deny }
+  - { action: shell, resource: "dbt run", effect: deny }
+  - { action: shell, resource: "dbt run *", effect: deny }
+  - { action: shell, resource: "dbt build", effect: deny }
+  - { action: shell, resource: "dbt build *", effect: deny }
+  - { action: shell, resource: "* dbt run *", effect: deny }
+  - { action: shell, resource: "* dbt build *", effect: deny }
+  - { action: shell, resource: "make *dbt*run*", effect: deny }
+  - { action: shell, resource: "make *dbt*build*", effect: deny }
+  - { action: shell, resource: "npm run *dbt*run*", effect: deny }
+  - { action: shell, resource: "npm run *dbt*build*", effect: deny }
+  - { action: shell, resource: "yarn *dbt*run*", effect: deny }
+  - { action: shell, resource: "yarn *dbt*build*", effect: deny }
+  - { action: shell, resource: "pnpm *dbt*run*", effect: deny }
+  - { action: shell, resource: "pnpm *dbt*build*", effect: deny }
+  - { action: shell, resource: "*dbt*run*", effect: deny }
+  - { action: shell, resource: "*dbt*build*", effect: deny }
 ---
 
 You are a uv-managed dbt project configuration subagent.
