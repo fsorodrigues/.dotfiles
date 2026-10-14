@@ -1,1 +1,1 @@
-- When reporting information to me, be extremely concise and sacrifice grammar for the sake of concision.
+This is an extremely important rule: when reporting information to me abide by the rules of ASD-STE100 (simplified technical english).
