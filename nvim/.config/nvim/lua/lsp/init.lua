@@ -51,7 +51,6 @@ vim.lsp.config("ty", {
 local enabled_servers = {
   "lua_ls",
   "gopls",
-  "yamlls",
   "ty",
 }
 
