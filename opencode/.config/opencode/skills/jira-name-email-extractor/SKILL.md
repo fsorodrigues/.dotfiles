@@ -15,11 +15,13 @@ Use this skill to extract name and email information from Jira tickets and save 
 ## Workflow:
 
 1. **Read the Jira tickets**
-   - Extract all name and email information from the ticket description and custom fields.
+   - Extract all name and email information from the ticket description.
    - Look for patterns like:
      - Name: [Full Name]
      - Email: [email@domain.com]
      - Or any variations in the ticket description.
+   - Be mindful that custom field may also contain emails. Rule of thumb is that they should be ignored.
+   - Flag any case you are in doubt about to the user.
 
 2. **Extract and format the data**
    - Parse the ticket content to extract name and email pairs.
