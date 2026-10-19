@@ -57,7 +57,7 @@ if [[ -d "$PYENV_ROOT/bin" ]]; then
 fi
 
 if [[ -s "$NVM_DIR/nvm.sh" ]]; then
-  source "$NVM_DIR/nvm.sh"
+  source "$NVM_DIR/nvm.sh" --no-use
   nvm use --silent default >/dev/null
 fi
 
@@ -80,17 +80,6 @@ fi
 if [[ -s "$HOME/.bun/_bun" ]]; then
   source "$HOME/.bun/_bun"
 fi
-
-if [[ -d "$HOME/.zsh/completions" ]] && [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then
-  fpath+=("$HOME/.zsh/completions")
-fi
-
-if [[ -d "$HOME/.zsh/pure" ]] && [[ ":$FPATH:" != *":$HOME/.zsh/pure:"* ]]; then
-  fpath+=("$HOME/.zsh/pure")
-fi
-
-autoload -Uz compinit
-compinit
 
 autoload -U promptinit
 promptinit
@@ -117,11 +106,19 @@ _dotfiles_load_ssh_keys_keychain() {
 
 _dotfiles_load_ssh_keys_macos() {
   local key
+  local fingerprint
+  local loaded_keys
 
   (( $+commands[ssh-add] )) || return 0
 
+  loaded_keys="$(ssh-add -l 2>/dev/null)"
+
   for key in "$@"; do
     if [[ -f "$key" ]]; then
+      fingerprint="${${(z)$(ssh-keygen -lf "$key" 2>/dev/null)}[2]}"
+      if [[ -n "$fingerprint" && "$loaded_keys" == *"$fingerprint"* ]]; then
+        continue
+      fi
       ssh-add --apple-load-keychain -q "$key" >/dev/null 2>&1
     fi
   done
