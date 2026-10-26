@@ -50,6 +50,11 @@ if ! (( $+commands[fd] )) && (( $+commands[fdfind] )); then
   alias fd="fdfind"
 fi
 
+
+if (( $+commands[lazyssm] )); then
+  alias ssm="lazyssm"
+fi
+
 bindkey -v
 
 if [[ -d "$PYENV_ROOT/bin" ]]; then
