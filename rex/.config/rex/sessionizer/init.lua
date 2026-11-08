@@ -1,4 +1,4 @@
-local windows = require("sessionizer.windows")
+local windows = require("windows")
 
 local config_dir = os.getenv("XDG_CONFIG_HOME") or (os.getenv("HOME") .. "/.config")
 local picker_script = config_dir .. "/rex/sessionizer/pick.lua"
