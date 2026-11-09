@@ -10,7 +10,7 @@ local initial_windows = {
   windows.zsh(selected),
 }
 
-if repo.is_git_repo(selected) then
+if repo.is_git_worktree(selected) then
   table.insert(initial_windows, windows.lazygit(selected))
 end
 
