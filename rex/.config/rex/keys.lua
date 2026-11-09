@@ -1,5 +1,8 @@
 require("utils")
 
+-- reload
+rex.bind(UseLeader(LEADER, "r"), "client.config.reload")
+
 -- tab
 rex.bind("ctrl+b", "client.tab.new")
 for i = 1, 5 do
