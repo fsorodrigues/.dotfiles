@@ -1,0 +1,11 @@
+{
+  "name": "opencode-close-tab",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    "./tui": "./tui.tsx"
+  },
+  "dependencies": {
+    "@opencode/plugin": "latest"
+  }
+}
