@@ -1,3 +1,20 @@
+local DEFAULT_SEARCH_DEPTH = 1
+
+---@class SearchPath
+---@field path string
+---@field depth integer
+
+---@type SearchPath[]
+local SEARCH_PATHS = {
+  { path = "~", depth = DEFAULT_SEARCH_DEPTH },
+  { path = "~/.config", depth = 2 },
+  { path = "~/Documents", depth = 2 },
+  { path = "~/.dotfiles", depth = 3 },
+  { path = "~/Documents", depth = DEFAULT_SEARCH_DEPTH },
+  { path = "~/Documents/clients", depth = 3 },
+  { path = "~/Documents/projects/", depth = 3 },
+}
+
 local windows = require("sessionizer.windows")
 
 local config_dir = os.getenv("XDG_CONFIG_HOME")
@@ -5,17 +22,42 @@ local config_dir = os.getenv("XDG_CONFIG_HOME")
 local picker_script = config_dir .. "/rex/sessionizer/pick.lua"
 
 local picker_shell = [[
+session_id=$1
+picker_script=$2
+shift 2
+
 selected="$({
-  for root in "$HOME/Downloads" "$HOME/Documents"; do
-    if [ -d "$root" ]; then
-      printf '%s\n' "$root"
-      fd --type d --absolute-path . "$root"
+  while [ "$#" -gt 0 ]; do
+    raw_path=$1
+    depth=$2
+    shift 2
+
+    if [ "$raw_path" = "~" ]; then
+      path="$HOME"
+    elif [ "${raw_path%%/*}" = "~" ]; then
+      path="$HOME/${raw_path#??}"
+    else
+      path="$raw_path"
+    fi
+
+    if [ -d "$path" ]; then
+      fd \
+        --follow \
+        --type d \
+        --hidden \
+        --no-ignore \
+        --absolute-path \
+        --min-depth 1 \
+        --max-depth "$depth" \
+        --exclude .git \
+        --exclude .jj \
+        . "$path"
     fi
   done
 } 2>/dev/null | sed 's:/$::' | sort -u | fzf --height=100% --reverse)"
 
 if [ -n "$selected" ]; then
-  rex do -s "$1" "$2" "selected=$selected"
+  rex do -s "$session_id" "$picker_script" "selected=$selected"
 fi
 ]]
 
@@ -27,14 +69,26 @@ rex.action({
       error("sessionizer must run inside a session", 0)
     end
 
-    local _, err = rex.session.new_layer(windows.picker({
+    -- `/bin/sh -c` uses the first values as `$1` (session) and `$2` (script).
+    -- The remaining arguments are consumed as path/depth pairs by picker_shell.
+    -- They are added to the tail of the command in the for loop below:
+    -- the command ends up something like this:
+    -- /bin/sh -c ... ./pick.lua <path 1> <depth 1> <path 2> <depth 2> ...
+    local picker_command = {
       "/bin/sh",
       "-c",
       picker_shell,
       "rex-sessionizer-picker",
       ctx.session_id,
       picker_script,
-    }))
+    }
+
+    for _, search_path in ipairs(SEARCH_PATHS) do
+      table.insert(picker_command, search_path.path)
+      table.insert(picker_command, tostring(search_path.depth))
+    end
+
+    local _, err = rex.session.new_layer(windows.picker(picker_command))
 
     if err ~= nil then
       error(err, 0)
