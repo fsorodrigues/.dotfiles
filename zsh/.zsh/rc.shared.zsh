@@ -90,7 +90,10 @@ autoload -U promptinit
 promptinit
 prompt pure
 
-bindkey -s '^g' 'ts\n'
+bindkey -r '^g'
+if [[ "${TERM_PROGRAM:l}" != "rex" ]]; then
+  bindkey -s '^g' 'ts\n'
+fi
 
 _dotfiles_load_ssh_keys_keychain() {
   local key

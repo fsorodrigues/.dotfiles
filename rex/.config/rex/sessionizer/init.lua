@@ -42,4 +42,4 @@ rex.action({
   end,
 })
 
-rex.bind("ctrl+/", "sessionizer_session_create")
+rex.bind("ctrl+g", "sessionizer_session_create")
