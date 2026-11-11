@@ -5,14 +5,9 @@ local DEFAULT_SEARCH_DEPTH = 1
 ---@field depth integer
 
 ---@type SearchPath[]
-local SEARCH_PATHS = {
+local DEFAULT_SEARCH_PATHS = {
   { path = "~", depth = DEFAULT_SEARCH_DEPTH },
-  { path = "~/.config", depth = 2 },
-  { path = "~/Documents", depth = 2 },
-  { path = "~/.dotfiles", depth = 3 },
   { path = "~/Documents", depth = DEFAULT_SEARCH_DEPTH },
-  { path = "~/Documents/clients", depth = 3 },
-  { path = "~/Documents/projects/", depth = 3 },
 }
 
 local windows = require("sessionizer.windows")
@@ -20,6 +15,58 @@ local windows = require("sessionizer.windows")
 local config_dir = os.getenv("XDG_CONFIG_HOME")
   or (os.getenv("HOME") .. "/.config")
 local picker_script = config_dir .. "/rex/sessionizer/pick.lua"
+
+local function search_path_key(path)
+  if path == "/" then
+    return path
+  end
+
+  return path:gsub("/+$", "")
+end
+
+local function merge_search_paths(defaults, overrides)
+  local merged = {}
+  local positions = {}
+
+  local function upsert(search_path)
+    if type(search_path) ~= "table" or type(search_path.path) ~= "string" then
+      return
+    end
+
+    local key = search_path_key(search_path.path)
+    local position = positions[key]
+
+    if position == nil then
+      positions[key] = #merged + 1
+      merged[#merged + 1] = search_path
+    else
+      merged[position] = search_path
+    end
+  end
+
+  for _, search_path in ipairs(defaults) do
+    upsert(search_path)
+  end
+
+  for _, search_path in ipairs(overrides) do
+    upsert(search_path)
+  end
+
+  return merged
+end
+
+local local_search_paths = {}
+local local_config = config_dir .. "/rex/sessionizer/local.lua"
+local loader = loadfile(local_config)
+
+if loader ~= nil then
+  local ok, result = pcall(loader)
+  if ok and type(result) == "table" then
+    local_search_paths = result
+  end
+end
+
+local SEARCH_PATHS = merge_search_paths(DEFAULT_SEARCH_PATHS, local_search_paths)
 
 local picker_shell = [[
 session_id=$1

@@ -1,2 +1,3 @@
 tmux-sessionizer/.config/tmux-sessionizer/local.conf
+rex/.config/rex/sessionizer/local.lua
 nvim/.config/nvim_test/
