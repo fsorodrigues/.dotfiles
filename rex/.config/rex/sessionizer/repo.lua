@@ -1,6 +1,6 @@
 local M = {}
 
-function M.is_git_repo(dir_path)
+function M.is_git_worktree(dir_path)
   local result, err = rex.exec({
     "git",
     "-C",
