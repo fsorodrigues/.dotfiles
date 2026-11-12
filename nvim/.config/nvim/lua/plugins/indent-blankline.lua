@@ -1,6 +1,7 @@
 return {
   "lukas-reineke/indent-blankline.nvim",
   main = "ibl",
+  keys = { "<leader>ibl" },
   config = function()
     vim.keymap.set(
       "n",

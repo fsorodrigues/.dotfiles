@@ -1,7 +1,7 @@
 return {
   "NStefan002/screenkey.nvim",
-  lazy = false,
   branch = "main",
+  keys = { "<leader>sk" },
   config = function()
     vim.keymap.set("n", "<leader>sk", function()
       require("screenkey").toggle()

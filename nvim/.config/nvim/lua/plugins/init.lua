@@ -2,6 +2,7 @@ return {
   "nvim-lua/plenary.nvim", -- lua functions that many plugins use
   {
     "christoomey/vim-tmux-navigator",
+    lazy = false,
     enabled = vim.env.TMUX ~= nil and vim.env.TMUX ~= "",
   }, -- tmux & split window navigation
   {

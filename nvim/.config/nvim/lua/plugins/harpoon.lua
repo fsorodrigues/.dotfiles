@@ -6,6 +6,7 @@ return {
     "nvim-telescope/telescope.nvim",
     "mike-jl/harpoonEx",
   },
+  event = "VeryLazy",
   config = function()
     local harpoon = require("harpoon")
     local keymap = vim.keymap -- for conciseness
